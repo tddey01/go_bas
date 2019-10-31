@@ -69,8 +69,27 @@ func testReverseStringV2() {
 	fmt.Println(str)
 }
 
+func testHuiWen(){
+	var str = "上海自来水来自海上"
+	var r []rune = []rune(str) //转码
+
+	for i := 0; i <len(r)/2;i++ {
+		tmp := r[len(r)-i-1]
+		r[len(r)-i-1] = r[i]
+		r[i] = tmp
+	}
+
+	str2 := string(r)
+	if str2 == str {
+		fmt.Println(str, " is huiwen")
+	} else {
+		fmt.Println(str, " is not huiwen")
+	}
+}
+
 func main() {
 	// testString()
 	// testReverseStringV1()
-	testReverseStringV2()
+	// testReverseStringV2()
+	testHuiWen()
 }

@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"strings"
+
+	"github.com/pgxy/listen2/access"
 )
 
 func testBol() {
@@ -84,10 +86,6 @@ func testStr() {
 	c = `c:\nhello`
 	fmt.Printf("a=%v b=%v c=%v\n ", a, b, c)
 
-
-
-
-
 	//6. 字符串串常⽤用操作
 	//字符串串
 	//a. ⻓长度:len(str)
@@ -100,53 +98,77 @@ func testStr() {
 	//var clen int
 	//clen = len(c)
 	clen := len(c)
-	fmt.Printf("len of c = %d\n",clen)
+	fmt.Printf("len of c = %d\n", clen)
 
-	c = c + c   //第一种拼接方式
-	fmt.Printf("c = %s\n",c)
+	c = c + c //第一种拼接方式
+	fmt.Printf("c = %s\n", c)
 
-	c = fmt.Sprint("%s%s",c,c)
-	fmt.Printf("c = %s\n",c)
+	c = fmt.Sprint("%s%s", c, c)
+	fmt.Printf("c = %s\n", c)
 
 	ips := "10.108.34.30;10.108.34.31"
-	ipArray:= strings.Split(ips, ";")
+	ipArray := strings.Split(ips, ";")
 	fmt.Printf("first ip :%s\n", ipArray[0])
 	fmt.Printf("second ip :%s\n", ipArray[1])
 
-	result := strings.Contains(ips, "10.108.34.31")  //判断一个串里面包含另一个字符串 是否为true
+	result := strings.Contains(ips, "10.108.34.31") //判断一个串里面包含另一个字符串 是否为true
 	fmt.Println(result)
 
 	// 前缀或后缀判断:strings.HasPrefix, strings.HasSuffix
 	str := "http://www.baidu.com"
-	if strings.HasPrefix(str,"http"){
+	if strings.HasPrefix(str, "http") {
 		fmt.Printf("str  is http url")
-	}else{
+	} else {
 		fmt.Printf("str is not http url")
 	}
 
-	if strings.HasSuffix(str,"com"){
+	if strings.HasSuffix(str, "com") {
 		fmt.Printf("str  is com url")
-	}else{
+	} else {
 		fmt.Printf("str is not com url")
 	}
 
 	// ⼦子串串出现的位置: strings.Index(), strings.LastIndex()
-	index := strings.Index(str,"baidu")  // 从前往后 
-	fmt.Printf("baidu is idnex:%d\n",index)
+	index := strings.Index(str, "baidu") // 从前往后
+	fmt.Printf("baidu is idnex:%d\n", index)
 
-	index = strings.LastIndex(str,"baidu")
+	index = strings.LastIndex(str, "baidu")
 	fmt.Printf("baidu last index:%d\n", index)
 
-
 	// join操作: strings.Join(a[]string, sep string)
-	var strArr []string = []string {"10.108.34.31","10.108.34.32","10.108.34.33" }
-	result1 := strings.Join(strArr,";")
-	fmt.Printf("result=%s",result1)
+	var strArr []string = []string{"10.108.34.31", "10.108.34.32", "10.108.34.33"}
+	result1 := strings.Join(strArr, ";")
+	fmt.Printf("result=%s", result1)
+}
 
+func testOperator() {
+	// 5. 操作符
+	// a. 逻辑操作符， == 、 != 、<、<=、>=
+	// b. 算数操作符， +、-、*、/、%
+	var a int = 2
+	if a == 2 {
+		fmt.Printf("is right\n")
+	} else {
+		fmt.Printf("is  not right\n")
+	}
 
+	if a != 2 {
+		fmt.Printf("is right\n")
+	} else {
+		fmt.Printf("is  not right\n")
+	}
+	a = a + 100
+	fmt.Printf("a=%d\n", a)
+}
+
+func testAccess() {
+	fmt.Printf("access.a= %d", access.A) // go 大写和小个 分为 公共 和私有类
 }
 func main() {
 	// testBol()
 	//testInt()
-	testStr()
+	// testStr()
+	// testOperator()
+	testAccess()
+
 }

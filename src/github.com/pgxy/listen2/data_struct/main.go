@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func testBol() {
 	var a bool
@@ -62,8 +65,88 @@ func testInt() {
 	//a. Go是强类型语⾔言，不不同类型相加以及赋值是不不允许的 b. 那怎么样才能实现，不不同类型相加呢?
 	//c. 输出占位符:整数%d，%x⼗十六进制，%f浮点数
 }
+
+func testStr() {
+	var a string = "htllo"
+	fmt.Println(a)
+
+	b := a // := 声明:=
+	fmt.Println(b)
+
+	c := "c:\nhello"
+	fmt.Println(c)
+
+	fmt.Printf("a=%v b=%v c=%v\n ", a, b, c)
+
+	//5. 字符串串的两种表示⽅方式u
+	//a. 双引号， “”，可以包含控制字符
+	//b. 反引号， ``，所有字符都是原样输出
+	c = `c:\nhello`
+	fmt.Printf("a=%v b=%v c=%v\n ", a, b, c)
+
+
+
+
+
+	//6. 字符串串常⽤用操作
+	//字符串串
+	//a. ⻓长度:len(str)
+	//b. 拼接:+，fmt.Sprintf
+	//c. 分割:strings.Split
+	//d. 包含: strings.Contains
+	//e. 前缀或后缀判断:strings.HasPrefix, strings.HasSuffix
+	//f. ⼦子串串出现的位置: strings.Index(), strings.LastIndex()
+	//g. join操作: strings.Join(a[]string, sep string)
+	//var clen int
+	//clen = len(c)
+	clen := len(c)
+	fmt.Printf("len of c = %d\n",clen)
+
+	c = c + c   //第一种拼接方式
+	fmt.Printf("c = %s\n",c)
+
+	c = fmt.Sprint("%s%s",c,c)
+	fmt.Printf("c = %s\n",c)
+
+	ips := "10.108.34.30;10.108.34.31"
+	ipArray:= strings.Split(ips, ";")
+	fmt.Printf("first ip :%s\n", ipArray[0])
+	fmt.Printf("second ip :%s\n", ipArray[1])
+
+	result := strings.Contains(ips, "10.108.34.31")  //判断一个串里面包含另一个字符串 是否为true
+	fmt.Println(result)
+
+	// 前缀或后缀判断:strings.HasPrefix, strings.HasSuffix
+	str := "http://www.baidu.com"
+	if strings.HasPrefix(str,"http"){
+		fmt.Printf("str  is http url")
+	}else{
+		fmt.Printf("str is not http url")
+	}
+
+	if strings.HasSuffix(str,"com"){
+		fmt.Printf("str  is com url")
+	}else{
+		fmt.Printf("str is not com url")
+	}
+
+	// ⼦子串串出现的位置: strings.Index(), strings.LastIndex()
+	index := strings.Index(str,"baidu")  // 从前往后 
+	fmt.Printf("baidu is idnex:%d\n",index)
+
+	index = strings.LastIndex(str,"baidu")
+	fmt.Printf("baidu last index:%d\n", index)
+
+
+	// join操作: strings.Join(a[]string, sep string)
+	var strArr []string = []string {"10.108.34.31","10.108.34.32","10.108.34.33" }
+	result1 := strings.Join(strArr,";")
+	fmt.Printf("result=%s",result1)
+
+
+}
 func main() {
 	// testBol()
-	testInt()
-
+	//testInt()
+	testStr()
 }

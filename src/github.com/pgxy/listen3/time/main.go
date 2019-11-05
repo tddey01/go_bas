@@ -58,8 +58,27 @@ func testConst() {
 
 func testFormat() {
 	now := time.Now()
-	timeStr := now.Format("2006/01/02 15:04:05")
+	timeStr := now.Format("2006/01/02 15:04:05\n")
 	fmt.Printf("time:%s", timeStr)
+	// 时间格式化输出  用于内部方法使用已经函数使用
+}
+
+func testFormat2() {
+	now := time.Now()
+	timeStr := fmt.Sprintf("%02d/%02d/%02d %02d:%02d:%02d\n", now.Year(), now.Month(), now.Day(), now.Hour(), now.Minute(), now.Second())
+	fmt.Printf("time:%s", timeStr)
+	// 时间格式化输出  用于内部方法使用已经函数使用
+}
+
+func testCost() {
+	start := time.Now().UnixNano()
+	for i := 0; i < 10; i++ {
+		time.Sleep(time.Millisecond)
+	}
+	end := time.Now().UnixNano()
+	cost := (end - start) / 1000
+	fmt.Printf("code cost :%d us\n", cost)
+
 }
 func main() {
 	//testTime()   // 时间格式 输出
@@ -67,6 +86,7 @@ func main() {
 	// testTimestamp(timestamp)  // 时间戳 转换 格式输出
 	//testtficker()  // 定时器
 	// testConst() //   时间纳秒 微妙 毫秒 秒 对比
-	testFormat()
-
+	// testFormat() //格式化输出
+	//testFormat2()
+	testCost()
 }

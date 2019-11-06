@@ -9,6 +9,12 @@ func testGlobalVariable() {
 	fmt.Printf("a=%d", a)
 }
 
+func testlocalVariable() {
+	var b int = 100
+	fmt.Printf("a=%d b=%d\n", a, b)
+}
+
 func main() {
-	testGlobalVariable()
+	// testGlobalVariable()
+	testlocalVariable()
 }

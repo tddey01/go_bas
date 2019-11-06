@@ -43,7 +43,38 @@ func example2() {
 
 	}
 }
+
+func calc(str string) (charCount int, numCount int, spaceCount int, otherCount int) {
+	uifCchars := []rune(str)
+
+	for i := 0; i < len(uifCchars); i++ {
+		if uifCchars[i] >= 'a' && uifCchars[i] <= 'z' || uifCchars[i] >= 'A' && uifCchars[i] <= 'Z' {
+			charCount++
+			continue
+		}
+
+		if uifCchars[i] >= '0' && uifCchars[i] < '9' {
+			numCount++
+			continue
+		}
+
+		if uifCchars[i] == ' ' {
+			spaceCount++
+			continue
+		}
+
+		otherCount++
+	}
+	return
+}
+
+func example3() {
+	var str string = "adhhk      我爱天安门1276845"
+	charCount, numCount, spConut, other := calc(str)
+	fmt.Printf("char conut :%d num conut:%d sp conut %d other Conut:%d", charCount, numCount, spConut, other)
+}
 func main() {
 	//example1()
-	example2()
+	//example2()
+	example3()
 }

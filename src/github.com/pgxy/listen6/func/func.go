@@ -20,9 +20,30 @@ func testFunc2() {
 	fmt.Printf("type of %T\n", f1)
 	sum := f1(5, 7)
 	fmt.Printf("sum=%d\n", sum)
+	// 函数也是⼀一种类型，因此可以定义⼀一个函数类型的变量量
 }
 
+func testFunc3() {
+	var i int = 0
+	defer fmt.Printf("i=%d\n", i)
+	i = 100
+	fmt.Printf("i=%d\n", i)
+	return
+}
+
+func testFunc4() {
+	var i int = 0
+	defer func() {
+		fmt.Printf("defer i=%d\n", i)
+	}() // 小括号 代表调用
+
+	i = 100
+	fmt.Printf("i=%d\n", i)
+	return
+}
 func main() {
-	testFunc1()
-	testFunc2()
+	// testFunc1()
+	// testFunc2()
+	//testFunc3()
+	testFunc4()
 }

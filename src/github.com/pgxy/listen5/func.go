@@ -52,3 +52,10 @@ func main() {
 	sum := calc_v2(10)
 	fmt.Printf("sum-%d\n", sum)
 }
+
+//内置函数
+//1. close:主要⽤用来关闭channel
+//2. len:⽤用来求⻓长度，⽐比如string、array、slice、map、channel
+//3. new:⽤用来分配内存，主要⽤用来分配值类型，⽐比如int、struct。返回的是指针 4. make:⽤用来分配内存，主要⽤用来分配引⽤用类型，⽐比如chan、map、slice
+//5. append:⽤用来追加元素到数组、slice中
+//6. panic和recover:⽤用来做错误处理理

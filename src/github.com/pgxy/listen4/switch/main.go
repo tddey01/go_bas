@@ -51,8 +51,26 @@ func testswitch3() {
 		fmt.Printf("invalid a = %d\n", a)
 	}
 }
+
+func testswitch4() {
+	var num = 800
+	switch {
+	case num > 0 && num <= 25:
+		fmt.Printf("a>=0 and <=25\n")
+	case num > 25 && num <= 50:
+		fmt.Printf("a >= 25 and a <= 50\n")
+	case num > 50 && num <= 75:
+		fmt.Printf("a >= 50 and a <= 75\n")
+	case num > 75 && num <= 100:
+		fmt.Printf("a >= 75 and a <= 100\n")
+	default:
+		fmt.Printf("invalid a = %d\n", num)
+	}
+}
+
 func main() {
 	// testswitch1()
 	//testswitch2()
-	testswitch3()
+	// testswitch3()
+	testswitch4()
 }

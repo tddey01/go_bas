@@ -85,10 +85,33 @@ func testswitch5() {
 	}
 }
 
+func testMuitl() {
+	// 1* 1 =2
+	for i := 1; i < 10; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Printf("%d * %d = %d\t", j, i, j*i)
+		}
+		fmt.Println()
+	}
+	// 乘法表
+}
+
+func testMuitll() {
+	// 1* 1 =2
+	for i := 1; i < 10; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Printf("%d + %d = %d\t", j, i, j+i)
+		}
+		fmt.Println()
+	}
+	// 加发表
+}
 func main() {
 	// testswitch1()
 	//testswitch2()
 	// testswitch3()
 	//testswitch4()
-	testswitch5()
+	//testswitch5()
+	//testMuitl()
+	testMuitll()
 }

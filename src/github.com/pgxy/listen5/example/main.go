@@ -21,7 +21,25 @@ func example1() {
 
 	}
 }
-func main() {
-	example1()
 
+func is_shuixianhua(n int) bool {
+	first := n % 10
+	second := (n / 100) % 10
+	third := (n / 100) % 10
+
+	fmt.Printf(" n%d first:%d second:%d third:%d\n", n, first, second, third)
+	return false
+}
+
+func example2() {
+	for i := 100; i < 1000; i++ {
+		if is_shuixianhua(i) == true {
+			fmt.Printf("[%d] is shuixianhua", i)
+		}
+
+	}
+}
+func main() {
+	//example1()
+	example2()
 }

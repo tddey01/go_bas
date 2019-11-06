@@ -17,7 +17,15 @@ func testDefer2() {
 	}
 	fmt.Println("bbbb")
 }
+
+func testDefer3() {
+	var i int = 0
+	defer fmt.Printf("defer i-%d\n", i)
+	i = 1000
+	fmt.Printf("i=%d\n", i)
+}
 func main() {
 	//testDefer1()
-	testDefer2()
+	// testDefer2()
+	testDefer3()
 }

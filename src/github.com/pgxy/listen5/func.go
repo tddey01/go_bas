@@ -12,10 +12,11 @@ func add(a, b int) int {
 	return sum
 }
 
-func calc(a, b int) (int, int) {
-	sum := a + b
-	sub := a - b
-	return sum, sub
+func calc(a, b int) (sum int, sub int) {
+	sum = a + b
+	sub = a - b
+	return
+	// 对返回值进⾏行行命名
 }
 
 func main() {
@@ -23,6 +24,6 @@ func main() {
 	//s := add(100, 300)
 	//fmt.Println(s)
 
-	sum, sub := calc(100, 200)
+	sub, sum := calc(100, 200)
 	fmt.Println(sub, sum)
 }

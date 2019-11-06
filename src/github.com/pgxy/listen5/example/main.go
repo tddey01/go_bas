@@ -27,7 +27,11 @@ func is_shuixianhua(n int) bool {
 	second := (n / 100) % 10
 	third := (n / 100) % 10
 
-	fmt.Printf(" n%d first:%d second:%d third:%d\n", n, first, second, third)
+	//fmt.Printf(" n%d first:%d second:%d third:%d\n", n, first, second, third)
+	sum := first*first*first + second*second*second + third*third*third
+	if sum == n {
+		return true
+	}
 	return false
 }
 

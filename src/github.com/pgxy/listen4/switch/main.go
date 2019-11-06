@@ -18,7 +18,7 @@ func testswitch1() {
 }
 
 func getValue() int {
-	return 6
+	return 1
 }
 func testswitch2() {
 	// var a  int = 7
@@ -41,7 +41,18 @@ func testswitch2() {
 	}
 	// 如果想让某个分支执行完后，继续执行其后面的分支，可以用 fallthrough 语句。
 }
+func testswitch3() {
+	switch a := getValue(); a {
+	case 1, 2, 3, 4, 5:
+		fmt.Printf("a>=1 and <=5\n")
+	case 6, 7, 8, 9:
+		fmt.Printf("a >= 6 and a <= 9\n")
+	default:
+		fmt.Printf("invalid a = %d\n", a)
+	}
+}
 func main() {
 	// testswitch1()
-	testswitch2()
+	//testswitch2()
+	testswitch3()
 }

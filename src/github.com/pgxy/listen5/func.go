@@ -12,8 +12,17 @@ func add(a, b int) int {
 	return sum
 }
 
+func calc(a, b int) (int, int) {
+	sum := a + b
+	sub := a - b
+	return sum, sub
+}
+
 func main() {
 	//sayhello()
-	s := add(100, 300)
-	fmt.Println(s)
+	//s := add(100, 300)
+	//fmt.Println(s)
+
+	sum, sub := calc(100, 200)
+	fmt.Println(sub, sum)
 }

@@ -24,6 +24,6 @@ func main() {
 	//s := add(100, 300)
 	//fmt.Println(s)
 
-	sub, sum := calc(100, 200)
-	fmt.Println(sub, sum)
+	sum, _ := calc(100, 200)
+	fmt.Println(sum)
 }

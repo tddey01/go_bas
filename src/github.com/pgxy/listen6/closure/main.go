@@ -24,7 +24,21 @@ func testClosure1() {
 	fmt.Printf("f1(1) ret=%d\n", ret)
 }
 
-func main() {
-	testClosure1()
+func add(base int) func(int) int {
+	return func(i int) int {
+		base += i
+		return base
+	}
+}
 
+func testClosure2() {
+	tmp1 := add(10)
+	fmt.Println(tmp1(1), tmp1(2))
+	tmp2 := add(100)
+	fmt.Println(tmp2(1), tmp2(2))
+
+}
+func main() {
+	//testClosure1()
+	testClosure2()
 }

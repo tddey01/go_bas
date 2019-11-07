@@ -64,6 +64,17 @@ func testArrya9() {
 	}
 	//. 数组遍历
 }
+
+func testArrya10() {
+	a := [5]int{3: 200, 4: 500}
+	var index, value int
+	// for index,value := range a{
+	for index, value = range a {
+		fmt.Printf("a[%d] = %d\n", index, value)
+	}
+	//a、b是不不同类型的数组，不不能赋值
+}
+
 func main() {
 	//testArrya1() //数组初始化
 	// testArrya2() //定义时数组初始化
@@ -73,5 +84,6 @@ func main() {
 	//testArrya6()
 	// testArrya7() //数组⻓长度是类型的⼀一部分
 	// testArrya8() // len内置函数
-	testArrya9() //. 数组遍历
+	//testArrya9() //. 数组遍历
+	testArrya10() //a、b是不不同类型的数组，不不能赋值
 }

@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func Adder() func(int) int {
 	var x int
@@ -38,7 +41,55 @@ func testClosure2() {
 	fmt.Println(tmp2(1), tmp2(2))
 
 }
+
+//  闭包的例例⼦子1
+
+func makeSuffixFunc(suffix string) func(string) string {
+	return func(name string) string {
+		if !strings.HasSuffix(name, suffix) {
+			return name + suffix
+		}
+		return name
+	}
+}
+
+func testClosure3() {
+	func1 := makeSuffixFunc(".bmp")
+	func2 := makeSuffixFunc(".jpg")
+	fmt.Println(func1("test"))
+	fmt.Println(func2("test"))
+}
+
+// 闭包的例例⼦子2
+
+func calc(base int) (func(int) int, func(int) int) {
+	add := func(i int) int {
+		base += i
+		return base
+	}
+
+	sub := func(i int) int {
+		base -= i
+		return base
+	}
+
+	return add, sub
+}
+
+func testClosure4() {
+	f1, f2 := calc(10)
+	fmt.Println(f1(1), f2(2))
+	fmt.Println(f1(3), f2(4))
+	fmt.Println(f1(5), f2(6))
+	fmt.Println(f1(7), f2(8))
+	// 先加 后减
+	// //闭包的例例⼦子4
+}
+
 func main() {
 	//testClosure1()
-	testClosure2()
+	//testClosure2()  //  闭包的例例⼦子1
+	//testClosure3() //闭包的例例⼦子2
+	testClosure4() //闭包的例例⼦子4 先加 后减
+
 }

@@ -11,6 +11,12 @@ func testArrya1() {
 	a[4] = 600
 	fmt.Println(a)
 }
+func testArrya2() {
+	var a [5]int = [5]int{10, 20, 30}
+	fmt.Println(a)
+}
+
 func main() {
-	testArrya1()
+	//testArrya1() //数组初始化
+	testArrya2()
 }

@@ -41,9 +41,30 @@ func testFunc4() {
 	fmt.Printf("i=%d\n", i)
 	return
 }
+func add1(a, b int) int {
+	return a + b
+}
+
+func sub(a, b int) int {
+	return a - b
+}
+
+func calc(a, b int, op func(int, int) int) int {
+
+	return op(a, b)
+}
+
+func testFunc5() {
+	sum := calc(100, 200, add)
+	sub := calc(100, 300, sub)
+	fmt.Printf("sum=%d\n", sum)
+	fmt.Printf("sub=%d\n", sub)
+}
+
 func main() {
 	// testFunc1()
 	// testFunc2()
 	//testFunc3()
-	testFunc4()
+	//testFunc4()
+	testFunc5()
 }

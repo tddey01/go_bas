@@ -50,6 +50,13 @@ func testArrya7() {
 	fmt.Println(b)
 	// 数组⻓长度是类型的⼀一部分
 }
+
+func testArrya8() {
+	a := [5]int{3: 400, 4: 600}
+	fmt.Printf("len(a) = %d\n", len(a))
+	// len内置函数
+}
+
 func main() {
 	//testArrya1() //数组初始化
 	// testArrya2() //定义时数组初始化
@@ -57,5 +64,6 @@ func main() {
 	// testArrya4() //定义时数组初始化
 	//testArrya5() //定义时数组初始化
 	//testArrya6()
-	testArrya7() //数组⻓长度是类型的⼀一部分
+	// testArrya7() //数组⻓长度是类型的⼀一部分
+	testArrya8() // len内置函数
 }

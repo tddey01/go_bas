@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"time"
 )
 
 func Adder() func(int) int {
@@ -86,10 +87,18 @@ func testClosure4() {
 	// //闭包的例例⼦子4
 }
 
+func testClosure5() {
+	for i := 0; i < 5; i++ {
+		go func(index int) {
+			fmt.Println(i)
+		}(i)
+	}
+	time.Sleep(time.Second)
+}
 func main() {
 	//testClosure1()
 	//testClosure2()  //  闭包的例例⼦子1
 	//testClosure3() //闭包的例例⼦子2
-	testClosure4() //闭包的例例⼦子4 先加 后减
-
+	//testClosure4() //闭包的例例⼦子4 先加 后减
+	testClosure5() // 闭包的例例⼦子5  闭包副作用
 }

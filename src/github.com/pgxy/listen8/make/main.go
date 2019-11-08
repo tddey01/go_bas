@@ -46,6 +46,7 @@ func testCap() {
 	a := [...]string{"a", "b", "c", "d", "d", "f", "g", "h"}
 	b := a[1:3]
 	fmt.Printf("b:%v len:%d cap:%d \n", b, len(b), cap(b))
+
 }
 func main() {
 	// testMake1()

@@ -77,10 +77,40 @@ func testSlice() {
 	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
 }
 
+func testappend() {
+	var a []int = []int{1, 2, 3}
+	var b []int = []int{4, 5, 6}
+
+	a = append(a, 23, 45, 8)
+	fmt.Printf("a=%d\n", a)
+	a = append(a, b...)
+	fmt.Printf("a=%d\n", a)
+}
+
+func sumArray(a []int) int {
+	var sum int = 0
+	for _, v := range a {
+		sum = sum + v
+	}
+	return sum
+}
+
+func testSumArray() {
+	var a [10]int = [10]int{1, 3, 3, 4, 5, 5, 8}
+	sum := sumArray(a[:])
+	fmt.Println("sum:", sum)
+
+	var b [3]int = [3]int{10, 20, 30}
+	sum = sumArray(b[:])
+	fmt.Println("sum:", sum)
+}
+
 func main() {
 	// testMake1()	q
 	// testMake2()
 	//testCap()
 	//testCap2()
-	testSlice()
+	// testSlice()
+	// testappend()
+	testSumArray()
 }

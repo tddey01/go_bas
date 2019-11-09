@@ -48,8 +48,39 @@ func testCap() {
 	fmt.Printf("b:%v len:%d cap:%d \n", b, len(b), cap(b))
 
 }
+func testCap2() {
+	a := [...]string{"a", "b", "c", "d", "d", "f", "g", "h"}
+	b := a[1:3]
+	fmt.Printf("b:%v len:%d cap:%d\n", b, len(b), cap(b))
+	b = b[:cap(b)]
+	fmt.Printf("after reslice :b:%v len:%d cap:%d\n", b, len(b), cap(b))
+}
+
+func testSlice() {
+	var a []int
+	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
+	if a == nil {
+		fmt.Printf("a is nil\n")
+		//定义names是⼀一个空切⽚片，⻓长度和容量量都等于0
+		//不不能对空切⽚片进⾏行行访问，否则panic
+	}
+
+	a = append(a, 100)
+	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
+	a = append(a, 200)
+	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
+	a = append(a, 300)
+	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
+	a = append(a, 400)
+	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
+	a = append(a, 500)
+	fmt.Printf("%p， len:%d, cap:%d\n", a, len(a), cap(a))
+}
+
 func main() {
-	// testMake1()
+	// testMake1()	q
 	// testMake2()
-	testCap()
+	//testCap()
+	//testCap2()
+	testSlice()
 }

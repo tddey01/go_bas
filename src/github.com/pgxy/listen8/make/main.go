@@ -104,7 +104,23 @@ func testSumArray() {
 	sum = sumArray(b[:])
 	fmt.Println("sum:", sum)
 }
+func modifySlice(a []int) {
+	a[0] = 1000
+}
 
+func testModifySlice() {
+	var a [3]int = [3]int{1, 2, 3}
+	modifySlice(a[:])
+	fmt.Println(a)
+}
+
+func testModifyCopy() {
+	var a []int = []int{1}
+	var b []int = []int{4, 5, 6}
+	copy(a, b)
+	fmt.Println("a:", a)
+	fmt.Println("b:", b)
+}
 func main() {
 	// testMake1()	q
 	// testMake2()
@@ -112,5 +128,7 @@ func main() {
 	//testCap2()
 	// testSlice()
 	// testappend()
-	testSumArray()
+	//testSumArray()
+	testModifySlice() // 切⽚片传参
+	testModifyCopy()  // 切⽚片拷⻉贝
 }

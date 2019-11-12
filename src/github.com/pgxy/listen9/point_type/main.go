@@ -26,7 +26,20 @@ func testPoint2() {
 	fmt.Printf("b指向的地址存储的值为:%d\n", a)
 }
 
+func modify(a *int) {
+	*a = 100
+	//指针变量量传参
+}
+
+func testPoint3() {
+	var b int = 10
+	p := &b
+	modify(p)
+	fmt.Printf("b:%d\n", b)
+}
 func main() {
 	//testPoint1()
-	testPoint2()
+	// testPoint2()
+	testPoint3() //指针变量量传参
+
 }

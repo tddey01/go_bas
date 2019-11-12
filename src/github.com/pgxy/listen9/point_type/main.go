@@ -60,6 +60,8 @@ func testPoint5() {
 	(*b)[0] = 100
 	(*b)[1] = 200
 	fmt.Printf("*b :%v\n", *b)
+	//make⽤用来分配引⽤用类型的内存，⽐比如 map、slice以及channel
+	//new⽤用来分配除引⽤用类型的所有其他类型的内存，⽐比如 int、数组等
 }
 
 func main() {

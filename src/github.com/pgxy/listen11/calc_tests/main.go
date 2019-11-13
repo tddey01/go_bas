@@ -2,12 +2,24 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/pgxy/listen11/calc"
 )
 
+var a int = 1000
+var b int = 2000
+
+func init() {
+	fmt.Println(a, b)
+	fmt.Println("init1  func in main")
+}
+
+func init() {
+	fmt.Println("init2  func in main")
+}
 func main() {
-	// var sum = calc.Add(2, 5)
-	sum = calc.Add(2, 5)
+	var sum = calc.Add(2, 5)
+	// sum = calc.Add(2, 5)
 	fmt.Printf("sum = %d\n", sum)
 }
 

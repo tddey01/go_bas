@@ -15,8 +15,16 @@ func map_exist1() {
 	fmt.Printf("a =%#v\n", a)
 
 	var result int
-	result = a["stud04"]
+	var ok bool
+	var  key string = "stud03"
+	result,ok = a[key]
+	if ok == false{
+		fmt.Printf(" key %s is not  exist\n", key)
+	}else{
+		fmt.Printf("key %s is %d\n", key,result)
+	}
 	fmt.Printf("result:%d\n", result)
+	//如何判断map指定的key是否存在? value, ok := map[key]
 }
 
 func main() {

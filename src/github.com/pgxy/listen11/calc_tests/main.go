@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	var sum = calc.Add(2, 5)
-	fmt.Printf("sum = %d", sum)
+	// var sum = calc.Add(2, 5)
+	sum = calc.Add(2, 5)
+	fmt.Printf("sum = %d\n", sum)
 }
 
 //go run运⾏行行go代码， 如果有多个⽂文件，需要把所有⽂文件都写到go run后⾯面

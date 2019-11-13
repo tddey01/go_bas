@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/pgxy/listen11/calc"
+	_ "github.com/pgxy/listen11/calc" // 保留这个包 一般使用在三方驱动使用
 )
 
 var a int = 1000
@@ -18,7 +18,7 @@ func init() {
 	fmt.Println("init2  func in main")
 }
 func main() {
-	var sum = calc.Add(2, 5)
+	// var sum = calc.Add(2, 5)
 	// sum = calc.Add(2, 5)
 	fmt.Printf("sum = %d\n", sum)
 }

@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sort"
 )
 
 func testInterface() {
-	var a interface{} // 空的interface 可以存放任何的值
+	var a interface{}
 	var b int = 100
 	var c float32 = 1.2
 	var d string = "hello"
@@ -55,14 +56,20 @@ func studentStore() {
 		value["age"] = rand.Intn(100)
 		stuMap[i] = value
 	}
-
+	var keys []int = make([]int, 0, 128)
 	fmt.Println()
-	for k, v := range stuMap {
-		fmt.Printf("id=%d stu info=%#v\n", k, v)
+	for k, _ := range stuMap {
+		// fmt.Printf("id=%d stu info=%#v\n", k, v)
+		keys = append(keys, k)
 	}
+	sort.Ints(keys)
+	for _, value := range keys {
+		fmt.Printf("id=%d stu info=%#v\n", value, stuMap[value])
+	}
+
 }
 
 func main() {
-	testInterface()
+	// testInterface()
 	studentStore()
 }

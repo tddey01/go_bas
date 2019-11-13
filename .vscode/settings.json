@@ -1,0 +1,6 @@
+{
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2,
+    "editor.fontSize": 16
+}

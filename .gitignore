@@ -4,7 +4,6 @@ pkg/
 gorutine
 hello
 multi_return
-.vscode/
 src/github.com/alecthomas
 src/github.com/BurntSushi
 src/github.com/fatih

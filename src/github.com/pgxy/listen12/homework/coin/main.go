@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 var (
-	coins = 100
+	coins = 55
 	users = []string{
 		"Matthew", "Sarah", "Augustus", "Heidi", "Emilie",
 		"Peter", "Giana", "Adriano", "Aaron", "Elizabeth",
@@ -50,5 +50,5 @@ func main() {
 	for username, coin := range distribution {
 		fmt.Printf("user:%s have %d coins\n", username, coin)
 	}
-	fmt.Printf("left coin%d\n", left)
+	fmt.Printf("left coin : %d\n", left)
 }

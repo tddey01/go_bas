@@ -35,6 +35,10 @@ func main() {
 		AvatarUrl: "https://www.baidu.com/a.jpg",
 	}
 	fmt.Printf("user3 = %#v\n", user3)
+
+	var user4 User
+	fmt.Printf("user4 %#v\n", user4)
+	//struct初始化的默认值
 }
 
 //⾯面向对象编程1

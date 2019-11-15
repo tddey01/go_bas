@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 var (
-	coins = 55
+	coins = 100
 	users = []string{
 		"Matthew", "Sarah", "Augustus", "Heidi", "Emilie",
 		"Peter", "Giana", "Adriano", "Aaron", "Elizabeth",
@@ -27,9 +27,10 @@ func calcCoin(username string) int {
 			sum = sum + 5
 		}
 	}
-	return sum
 
+	return sum
 }
+
 func dispatchCoin() int {
 	var left int = coins
 	for _, username := range users {
@@ -46,9 +47,11 @@ func dispatchCoin() int {
 }
 
 func main() {
+
 	left := dispatchCoin()
 	for username, coin := range distribution {
 		fmt.Printf("user:%s have %d coins\n", username, coin)
 	}
-	fmt.Printf("left coin : %d\n", left)
+
+	fmt.Printf("left coin:%d\n", left)
 }

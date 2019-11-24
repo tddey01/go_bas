@@ -15,6 +15,8 @@ func (p People) Set(name string, country string) {
 	p.Name = name
 	p.Country = country
 }
+
+func (p *People) Set(name)
 func main() {
 	var p1 People = People{
 		Name:    "people01",

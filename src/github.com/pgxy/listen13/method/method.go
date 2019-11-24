@@ -16,7 +16,11 @@ func (p People) Set(name string, country string) {
 	p.Country = country
 }
 
-func (p *People) Set(name)
+func (p *People) Setv2(name string, country string) { //指针函数
+	p.Country = country
+	p.Name = name
+}
+
 func main() {
 	var p1 People = People{
 		Name:    "people01",
@@ -24,4 +28,9 @@ func main() {
 	}
 	p1.Print()
 	p1.Set("peple02", "enligsh")
+	p1.Print()
+
+	//(&p1).Setv2("people02","enligsh") // 可以成功修改
+	p1.Setv2("p2", "c2")
+	p1.Print()
 }

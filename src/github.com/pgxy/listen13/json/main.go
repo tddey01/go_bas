@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type Student struct {
 	Id   string
@@ -27,4 +30,10 @@ func main() {
 		}
 		c.Student = append(c.Student, stu)
 	}
+	data, err := json.Marshal(c)
+	if err != nil {
+		fmt.Println("json marsha feiled")
+		return
+	}
+	fmt.Printf("json :%s\n", string(data))
 }

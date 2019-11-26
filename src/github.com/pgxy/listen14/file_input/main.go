@@ -19,6 +19,6 @@ func main() {
 	   终端读取:
 	   File.Read(b []byte)
 	   终端输出:
-	   File.Write(b []byte) File.WriteString(str string)
+	   File.Write(b []byte) File.WriteString(str str	ing)
 	*/
 }

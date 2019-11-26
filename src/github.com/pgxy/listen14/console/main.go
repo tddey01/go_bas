@@ -11,4 +11,5 @@ func main() {
 	// fmt.Println(string(buf[:]))
 	os.Stdout.WriteString(string(buf[:]))
 	fmt.Scanf()
+	s = false
 }

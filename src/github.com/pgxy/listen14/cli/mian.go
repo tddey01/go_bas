@@ -1,0 +1,37 @@
+package main
+
+import (
+	"fmt"
+	"github.com/urfave/cli"
+	"os"
+)
+
+func main() {
+	var language string
+	var recusive bool
+	app := cli.NewApp()
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:        "lang, l",
+			Value:       "english",
+			Usage:       "language",
+			Destination: &language,
+		},
+		cli.BoolFlag{
+			Name:        "recusive, r",
+			Usage:       "recusive",
+			Destination: &recusive,
+		},
+	}
+	app.Action = func(c *cli.Context) error {
+		var cmd string
+		if c.NArg() > 0 {
+			cmd = c.Args().Get(0)
+			fmt.Println("cmd is ", cmd)
+		}
+		fmt.Println("recusive is ", recusive)
+		fmt.Println("language is ", language)
+		return nil
+	}
+	app.Run(os.Args)
+}

@@ -13,3 +13,5 @@ func main() {
 	}
 	fmt.Println(string(content))
 }
+
+// 读取整个文件示例

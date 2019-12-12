@@ -107,3 +107,4 @@ src/run.bat
 src/strconv        
 src/testdata       
 src/unicode
+src/sort

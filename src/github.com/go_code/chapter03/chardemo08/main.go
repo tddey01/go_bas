@@ -17,7 +17,15 @@ func main() {
 	fmt.Printf("c1=%c  c2=%c\n", c1, c2)
 
 	// var c3 byte = '北' // overflows byte 溢出
-	var c3 int = '北' 
-	fmt.Printf("c3=%c c3对应的码值=%d\n", c3,c3)
+	var c3 int = '北'
+	fmt.Printf("c3=%c c3对应的码值=%d\n", c3, c3)
+
+	// 可以直接给某个变量附一个数字，然后格式输出时%c， 会输出该数字对应的unicode 字符
+	var c4 int = 22269 // 22269 -> ‘国’ 120 -> 'x'
+	fmt.Printf("c4=%c\n", c4)
+
+	// 字符类型可以进行运算， 相当于一个整数，运输时时按照码值运行
+	var n1 = 10 + 'a' // 10 +97 = 107
+	fmt.Println("n1=", n1)
 
 }

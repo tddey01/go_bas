@@ -38,4 +38,10 @@ func main() {
 	f2 = float32(f1)
 	fmt.Printf("n1 type %T n1=%v\n", f1, f1)
 	fmt.Printf("n1 type %T n1=%v\n", f2, f2)
+
+	// 注意
+	var str4 string = "hello"
+	var n4 int64
+	n4, _ = strconv.ParseInt(str4, 10, 64)
+	fmt.Printf("n4 type %T n1=%v\n", n4, n4)
 }

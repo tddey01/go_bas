@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	_ "fmt"
 	"strconv"
-	_ "unsafe"
 )
 
 // Golang 中基本数据类型转成string使用

@@ -21,4 +21,5 @@ func main() {
 	prt = &b
 	*prt = 200
 	fmt.Printf("a=%d b=%d *prt=%d\n", a, b, *prt)
+	// a=100 b=200 *prt=200
 }

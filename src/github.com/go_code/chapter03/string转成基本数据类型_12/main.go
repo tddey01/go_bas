@@ -41,7 +41,7 @@ func main() {
 
 	// 注意
 	var str4 string = "hello"
-	var n4 int64
+	var n4 int64 = 11
 	n4, _ = strconv.ParseInt(str4, 10, 64)
 	fmt.Printf("n4 type %T n1=%v\n", n4, n4)
 }

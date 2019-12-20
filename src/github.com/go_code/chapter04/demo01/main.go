@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	// 重点 讲解 / 、 %
@@ -24,9 +22,9 @@ func main() {
 
 	// ++ 和 -- 运算使用
 	var i int = 10
-	i++ // 等价于 i= i + i
+	i++                  // 等价于 i= i + i
 	fmt.Println("i=", i) //11
-	i--  // 等价于 i = i - i
+	i--                  // 等价于 i = i - i
 	fmt.Println("i=", i) //10
 
 }

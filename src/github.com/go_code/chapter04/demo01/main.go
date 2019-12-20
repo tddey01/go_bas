@@ -15,12 +15,18 @@ func main() {
 	var n2 float32 = 10.0 / 4
 	fmt.Println(n2)
 
-	//演示 % 取余运算 
+	//演示 % 取余运算
 	// 看一个公式 a % b = a -a / b * b
-	fmt.Println("10%3=", 10%3)   // = 1
-	fmt.Println("-10%3=", -10%3) // = -10 - (-10) / 3 * 3 = -10 -  (-9) = -1
-	fmt.Println("10%-3=", 10%-3) // = 1
+	fmt.Println("10%3=", 10%3)     // = 1
+	fmt.Println("-10%3=", -10%3)   // = -10 - (-10) / 3 * 3 = -10 -  (-9) = -1
+	fmt.Println("10%-3=", 10%-3)   // = 1
 	fmt.Println("-10%-3=", -10%-3) // = -1
 
-	
+	// ++ 和 -- 运算使用
+	var i int = 10
+	i++ // 等价于 i= i + i
+	fmt.Println("i=", i) //11
+	i--  // 等价于 i = i - i
+	fmt.Println("i=", i) //10
+
 }

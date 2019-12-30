@@ -36,4 +36,15 @@ func main() {
 	} else {
 		fmt.Println("ok")
 	}
+
+	var b bool = true
+	if b == false { // 如果写成 b = false 能编译通过吗？ 如果能， 结果是？ 编译错误
+		fmt.Println("a")
+	} else if b {
+		fmt.Println("b") //b 结果是b
+	} else if !b {
+		fmt.Println("c") //c
+	} else {
+		fmt.Println("d")
+	}
 }

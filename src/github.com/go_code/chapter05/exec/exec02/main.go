@@ -63,9 +63,9 @@ func main() {
 		使用math。Squr方法 => 手册
 	*/
 
-	var a float64 = 3.0
-	var b float64 = 1.0
-	var c float64 = 10.0
+	var a float64 = 2.0
+	var b float64 = 4.0
+	var c float64 = 2.0
 
 	m := b*b - 4*a*c
 
@@ -73,10 +73,10 @@ func main() {
 	if m > 0 {
 		x1 := (-b + math.Sqrt(m)) / 2 * a
 		x2 := (-b - math.Sqrt(m)) / 2 * a
-		fmt.Printf("x1=%v x2=%v", x1, x2)
+		fmt.Printf("x1=%v x2=%v\n", x1, x2)
 	} else if m == 0 {
 		x1 := (-b + math.Sqrt(m)) / 2 * a
-		fmt.Printf("x1=%v", x1)
+		fmt.Printf("x1=%v\n", x1)
 
 	} else {
 		fmt.Println("无解...")

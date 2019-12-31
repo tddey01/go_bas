@@ -81,4 +81,37 @@ func main() {
 	} else {
 		fmt.Println("无解...")
 	}
+
+	// 案例四
+	// 大家都知道，男大当婚，女大当嫁。那么女方家长要嫁女儿，当然要提出一定的条件：
+	//高：180cm以上；富：财富1千万以上；帅：是。条件从控制台输入。
+	// 如果这三个条件同时满足，则：“我一定要嫁给他!!!”
+	// 如果三个条件有为真的情况，则：“嫁吧，比上不足，比下有余。”
+	// 如果三个条件都不满足，则：“不嫁！”
+
+	// var height int32  | var money float32 | var handsome bool
+
+	//分析思路
+	//1. 应该设计三个变量 var height int32  | var money float32 | var handsome bool
+	//2. 而且需要从终端输入 fmt.Scanln
+	//3. 使用多分支if--else if -- else
+
+	var height int32
+	var money float32
+	var handsome bool
+
+	fmt.Println("请输入身高(厘米)")
+	fmt.Scanln(&height)
+	fmt.Println("请输入财富(千万)")
+	fmt.Scanln(&money)
+	fmt.Println("请输入是否帅(true/false)")
+	fmt.Scanln(&handsome)
+
+	if height > 180 && money > 1.0 && handsome {
+		fmt.Println("我一定要嫁给他!!!")
+	} else if height > 180 || money > 1.0 && handsome {
+		fmt.Println("嫁吧，比上不足，比下有余")
+	} else {
+		fmt.Println("不嫁")
+	}
 }

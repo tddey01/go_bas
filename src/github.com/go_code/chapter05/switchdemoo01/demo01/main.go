@@ -60,13 +60,38 @@ func main() {
 	// 	fmt.Println("没有匹配到")
 	// }
 
-	var n1 int32 = 6
-	var n2 int32 = 20
+	// var n1 int32 = 5
+	// var n2 int32 = 20
 
-	switch n1 {
-	case n2, 10, 5: //case  后面可以有多个表达式
-		fmt.Println("ok1")
+	// switch n1 {
+	// case n2, 10, 5: //case  后面可以有多个表达式
+	// 	fmt.Println("ok1")
+	// default:
+	// 	fmt.Println("没有匹配到")
+	// }
+
+	// switch 后面也可以表达式 类似 if --else 分支来使用
+	// var age int = 25
+	// switch {
+	// case age == 10:
+	// 	fmt.Println("age == 10")
+	// case age == 20:
+	// 	fmt.Println("age == 20")
+	// default:
+	// 	fmt.Println("没有匹配到")
+	// }
+
+	// case 中也可以对  范围进行判断
+	var score int = 80
+	switch {
+	case score > 90:
+		fmt.Println("成绩优秀..")
+	case score >= 70 && score <= 90:
+		fmt.Println("成绩优良...")
+	case score >= 60 && score < 70:
+		fmt.Println("成绩及格...")
 	default:
-		fmt.Println("没有匹配到")
+		fmt.Println("不及格...")
 	}
+
 }

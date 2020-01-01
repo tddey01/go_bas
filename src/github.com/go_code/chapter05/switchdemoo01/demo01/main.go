@@ -94,4 +94,30 @@ func main() {
 		fmt.Println("不及格...")
 	}
 
+	// switch 后也可以直接声明/定义一个变量，分好结束，不推荐使用
+
+	switch grade := 95; { // 在golang 中  可以这样写
+	case grade > 90:
+		fmt.Println("成绩优秀..~")
+	case grade >= 70 && grade <= 90:
+		fmt.Println("成绩优良...~")
+	case grade >= 60 && grade < 70:
+		fmt.Println("成绩及格...~")
+	default:
+		fmt.Println("不及格...~")
+	}
+
+	// switch  的穿透  fallthrought
+	var num int = 10
+	switch num {
+	case 10:
+		fmt.Println("ok1")
+		fallthrough //默认只能穿透一次
+	case 20:
+		fmt.Println("ok2")
+	case 30:
+		fmt.Println("ok3")
+	default:
+		fmt.Println("没有匹配到")
+	}
 }

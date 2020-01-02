@@ -21,4 +21,10 @@ func main() {
 		}
 	}
 	fmt.Printf("count=%v sum=%v\n", count, sum)
+
+	//完成下面的表达式输出 ，6是可变的
+	var n int = 60
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%v + %v = %v\n", i, n-i, n)
+	}
 }

@@ -45,4 +45,26 @@ func main() {
 		fmt.Printf("%v 你好 大笨猪\n", j)
 		j++ //循环变量迭代
 	}
+
+	// for 循环的第三种写法， 这种写法通常会配合break使用
+	k := 1
+	for {
+		if k <= 10 {
+			fmt.Printf("%v 你好 大笨猪\n", k)
+		} else {
+			break // break 就是退出当前for循环 终止当前for循环
+		}
+		k++
+	}
+
+	//字符串遍历方式 1-传统方式
+	var str string = "hello,world!"
+	for i := 1; i < len(str); i++ {
+		fmt.Printf("%c\n", str[i]) //使用掉下标
+	}
+
+	//字符串遍历方式 2-传统方式
+	for index, val := range str {
+		fmt.Printf("index=%d val=%c\n", index, val)
+	}
 }

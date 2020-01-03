@@ -40,7 +40,7 @@ func main() {
 		   我们还分析到一个例外情况，最后层（底层）是全部打*
 
 	*/
-	var totalLevel int = 9
+	var totalLevel int = 10
 	//i 表示层数
 	for i := 1; i <= totalLevel; i++ {
 		// 在打印*前先打印空格
@@ -49,7 +49,19 @@ func main() {
 		}
 		//j 表示每层答应多少*
 		for j := 1; j <= 2*i-1; j++ {
-			fmt.Print("*")
+			if j == 1 || j == 2*i-1 || i == totalLevel {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+
+		}
+		fmt.Println()
+	}
+	var num int = 9
+	for i := 1; i <= num; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Printf("%d * %d = %d\t", j, i, j*i)
 		}
 		fmt.Println()
 	}

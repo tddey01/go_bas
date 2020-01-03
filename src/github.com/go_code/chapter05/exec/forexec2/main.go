@@ -25,15 +25,27 @@ func main() {
 	//1. 声明以变量 passCount 用于保存及格人数
 
 	// 走代码实现
-	for j := 1; j <= 3; j++ {
+	var classNum int = 1
+	var stuNum int = 5
+	var totalSum float64 = 0.0
+	var passCount int = 0
+	for j := 1; j <= classNum; j++ {
 		sum := 0.0
-		for i := 1; i <= 5; i++ {
+		for i := 1; i <= stuNum; i++ {
 			var score float64
 			fmt.Printf("请输入第%d班，第%d个学生的成绩 \n", j, i)
 			fmt.Scanln(&score)
 			//累计总分
 			sum += score
+			// 判断分数是否及格
+			if score >= 60 {
+				passCount++
+			}
 		}
-		fmt.Printf("第%d个班班级的平均分是%v\n", j, sum/5)
+		fmt.Printf("第%d个班班级的平均分是%v\n", j, sum/float64(stuNum))
+		//将各个班的总成绩累计到toalSum
+		totalSum += sum
 	}
+	fmt.Printf("各个班的平均分%v 所有班级的平均分%v\n", totalSum, totalSum/float64(stuNum*classNum))
+	fmt.Printf("及格人数为%v\n", passCount)
 }

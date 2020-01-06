@@ -21,8 +21,9 @@ func main() {
 	//编写一个无限循环的控制，然后不停的随机生成数，当生成了99时，就退出这个无限循环==》break
 	var count int = 0
 	for {
-		rand.Seed(time.Now().Unix())
+		rand.Seed(time.Now().UnixNano())
 		n := rand.Intn(100) + 1
+		fmt.Println("n=", n)
 		count++
 		if n == 99 {
 			break

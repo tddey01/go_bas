@@ -30,4 +30,17 @@ func main() {
 		}
 	}
 	fmt.Println("生成99 一共使用了", count)
+
+	// 演示指定标签形式使用 break
+	lable2:
+	for i := 0; i <= 4; i++ {
+	// lable1: //设置一个标签
+		for j := 0; j <= 10; j++ {
+			if j == 2 {
+				// break //break 默认会跳出最近的for循环
+				break lable2
+			}
+			fmt.Println("j=", j)
+		}
+	}
 }

@@ -18,4 +18,3 @@ label1:
 	fmt.Println("ok7")
 
 }
-/

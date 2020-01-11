@@ -32,4 +32,5 @@ func main() {
 	var operator byte = '-'
 	result := utils.Cal(n1, n2, operator)
 	fmt.Println("res=", result)
+	
 }

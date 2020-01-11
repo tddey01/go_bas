@@ -17,6 +17,12 @@ func getSum(n1 int, n2 int) int {
 	return sum
 }
 
+// 编写要给函数，可以一计算两个数的和和差 并返回结果
+func getSumAndsub(n1 int, n2 int) (int, int) {
+	sum := n1 + n2
+	sub := n1 - n2
+	return sum, sub
+}
 func main() {
 	//调用test
 	n1 := 10
@@ -25,5 +31,9 @@ func main() {
 	// n2 := 11
 	sum := getSum(10, 20)
 	fmt.Println("main sum = ", sum)
+
+	// 调用getSumAndsub
+	res1, res2 := getSumAndsub(1, 2) // res1 = 3 res2 = -1
+	fmt.Println("res1=", res1, "res2=", res2)
 
 }

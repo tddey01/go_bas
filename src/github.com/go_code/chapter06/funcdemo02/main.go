@@ -36,4 +36,7 @@ func main() {
 	res1, res2 := getSumAndsub(1, 2) // res1 = 3 res2 = -1
 	fmt.Println("res1=", res1, "res2=", res2)
 
+	//希望忽略某个返回值，则使用_ 符号表示占位忽略
+	_, res3 := getSumAndsub(3, 9)
+	fmt.Println("res3=", res3)
 }

@@ -30,7 +30,14 @@ func makeSuffix(suffix string) func(string) string {
 		}
 		return name
 	}
+}
 
+func makeSuffix2(suffix string, name string) string {
+	//如果 name 没有指定后缀，怎加上， 否则就返回原来名字
+	if !strings.HasSuffix(name, suffix) {
+		return name + suffix
+	}
+	return name
 }
 func main() {
 	//使用前面的代码
@@ -45,4 +52,7 @@ func main() {
 	f2 := makeSuffix(".jpg")
 	fmt.Println("文件名处理后=", f2("winter"))
 	fmt.Println("文件名处理后=", f2("bird.jpg"))
+
+	fmt.Println("文件名处理后=", makeSuffix2(".png", "winter"))
+	fmt.Println("文件名处理后=", makeSuffix2(".png", "bird.png"))
 }

@@ -39,4 +39,20 @@ func main() {
 	fmt.Println()
 	fmt.Printf(now.Format("15:04:05"))
 	fmt.Println()
+
+	fmt.Printf(now.Format("2006"))
+	fmt.Println()
+
+	// 需求  每隔1秒钟打印一个数字， 打印到100就推出
+	i := 0
+	for {
+		i++
+		fmt.Println(i)
+		// 休眠
+		// time.Sleep(time.Second)
+		time.Sleep(time.Microsecond * 100)
+		if i == 100 {
+			break
+		}
+	}
 }

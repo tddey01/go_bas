@@ -20,4 +20,23 @@ func main() {
 	fmt.Printf("时=%v\n", now.Hour())
 	fmt.Printf("分=%v\n", now.Minute())
 	fmt.Printf("秒=%v\n", now.Second())
+
+	//3 格式化日期和时间
+	// 方法一
+	fmt.Printf("当前年月日 %d-%d-%d %d:%d:%d\n",
+		now.Year(), int(now.Month()), now.Day(),
+		now.Hour(), now.Minute(), now.Second())
+
+	dateStr := fmt.Sprintf("当前年月日 %d-%d-%d %d:%d:%d\n",
+		now.Year(), int(now.Month()), now.Day(),
+		now.Hour(), now.Minute(), now.Second())
+	fmt.Printf("dateStr=%v", dateStr)
+
+	// 方法二
+	fmt.Printf(now.Format("2006/01/02 15:04:05"))
+	fmt.Println()
+	fmt.Printf(now.Format("2006-01-02"))
+	fmt.Println()
+	fmt.Printf(now.Format("15:04:05"))
+	fmt.Println()
 }

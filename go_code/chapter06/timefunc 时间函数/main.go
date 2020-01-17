@@ -44,15 +44,18 @@ func main() {
 	fmt.Println()
 
 	// 需求  每隔1秒钟打印一个数字， 打印到100就推出
-	i := 0
-	for {
-		i++
-		fmt.Println(i)
-		// 休眠
-		// time.Sleep(time.Second)
-		time.Sleep(time.Microsecond * 100)
-		if i == 100 {
-			break
-		}
-	}
+	// i := 0
+	// for {
+	// 	i++
+	// 	fmt.Println(i)
+	// 	// 休眠
+	// 	// time.Sleep(time.Second)
+	// 	time.Sleep(time.Microsecond * 100)
+	// 	if i == 100 {
+	// 		break
+	// 	}
+	// }
+
+	//Unix 和UnixNano 的使用
+	fmt.Printf("Uninx时间戳=%v unixnano时间戳=%v\n",now.Unix(),now.UnixNano())
 }

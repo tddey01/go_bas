@@ -89,4 +89,29 @@ func main() {
 
 	str = strings.ToUpper(str) // 全部改变大写
 	fmt.Println(str)
+
+	//16 将字符串左右两边的空格去掉： strings.TrimSpace(" tn a lone gopher ntrn   ")
+	str3 := " tn a lone gopher ntn    "
+	str4 := strings.TrimSpace(str3) //字符串左右两边的空格去掉
+	fmt.Printf("str4=%q\n", str4)
+
+	//17)将字符串左右两边指定的字符去掉 ： strings.Trim("! hello! ", " !")  // ["hello"] //将左右两边 ! 和 " "去掉
+	str = strings.Trim("! hello! ", " !")
+	fmt.Printf("str=%q\n", str)
+
+	//18 将字符左边指定的字符去掉， strings.TrimLeft("! hello!", "!") //将左边！和""去掉
+	str = strings.TrimLeft("! hello!", " !")
+	fmt.Printf("str=%q\n", str)
+
+	//19 将字符右边指定的字符去掉， strings.TrimLeft("! hello!", "!") //将右边！和""去掉
+	str = strings.TrimRight("! hello ! ", "! ")
+	fmt.Printf("str=%q\n", str)
+
+	//20)判断字符串是否以指定的字符串开头: strings.HasPrefix("ftp://192.168.10.1", "ftp") // true
+	b = strings.HasPrefix("ftp://192.168.10.1", "hsp") //true
+	fmt.Printf("b=%v\n", b)
+
+	//21)判断字符串是否以指定的字符串结尾: strings.HasSuffix("NLT_abc.jpg", ".jpg") // fales
+	s = strings.HasSuffix("NLT_abc.jpg", "jpg")
+	fmt.Printf("s=%v\n", s)
 }

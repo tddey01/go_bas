@@ -75,11 +75,18 @@ func main() {
 	str = strings.Replace(str2, "go", "北京", -1)
 	fmt.Printf("str=%v  str2=%v\n", str, str2)
 
-	//按照指定的某个字符，为分割标识，将一个字符串拆分成字符串数组： strings.Split("hello,wrold,ok", ",")
+	// 14 按照指定的某个字符，为分割标识，将一个字符串拆分成字符串数组： strings.Split("hello,wrold,ok", ",")
 	strArr := strings.Split("hello,wrold,ok", ",")
 	for i := 0; i < len(strArr); i++ {
 		fmt.Printf("str[%v]=%v\n", i, strArr[i])
 	}
 	fmt.Printf("strArr=%v\n", strArr)
 
+	//15)将字符串的字母进行大小写的转换: strings.ToLower("Go") // go strings.ToUpper("Go") // GO
+	str = "goLang Hello"
+	str = strings.ToLower(str) // 全部改变小写
+	fmt.Println(str)
+
+	str = strings.ToUpper(str) // 全部改变大写
+	fmt.Println(str)
 }

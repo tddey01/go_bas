@@ -5,3 +5,6 @@
   "go.useCodeSnippetsOnFunctionSuggest": true,
   "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
   "go.docsTool": "gogetdoc",
+
+
+  The "go-outline" command is not available. Run "go get -v github.com/ramya-rao-a/go-outline" to install.

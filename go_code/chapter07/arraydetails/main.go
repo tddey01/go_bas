@@ -11,8 +11,9 @@ func test01(arr [3]int) {
 
 //函数
 func test02(arr *[3]int) {
-	fmt.Printf("arr指针的地址=%p", &arr)
+	fmt.Printf("arr指针的地址2=%p\n", &arr)
 	(*arr)[0] = 88 //!!
+	fmt.Printf("arr 内存地址3=%p\n", &arr)
 }
 
 func main() {
@@ -53,7 +54,7 @@ func main() {
 	// fmt.Println("main arr=", arr) //
 
 	arr := [3]int{11, 22, 33}
-	fmt.Printf("arr 的地址=%p", &arr)
+	fmt.Printf("arr 的地址1=%p\n", &arr)
 	test02(&arr)
 	fmt.Println("main arr=", arr)
 }

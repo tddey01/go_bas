@@ -16,9 +16,12 @@ func main() {
 	//从终端循环输入5个成绩， 保存到float64数组，并输出
 	var score [5]float64
 
-	for i :=0; i<len(score); i++{
-		fmt.Printf("请输入%d个元素的值",i+1)
+	for i := 0; i < len(score); i++ {
+		fmt.Printf("请输入%d个元素的值", i+1)
 		fmt.Scanln(&score[i])
-		
+	}
+	// 变量数组打印
+	for i := 0; i < len(score); i++ {
+		fmt.Printf("score[%d]=%v\n", i, score[i])
 	}
 }

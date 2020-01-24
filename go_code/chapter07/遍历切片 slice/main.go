@@ -31,4 +31,12 @@ func main() {
 	// 通过append将切片slice3追加给slice3
 	slice3 = append(slice3, slice3...)
 	fmt.Println("slice3=", slice3)
+
+	// 切片可以copy 复制等操作
+	var slice4 []int = []int{1, 2, 3, 4, 5, 6, 7}
+	var slice5 = make([]int, 10)
+	copy(slice5, slice4)
+	fmt.Println("slice4 =", slice4)
+	fmt.Println("slice5 =", slice5)
+
 }

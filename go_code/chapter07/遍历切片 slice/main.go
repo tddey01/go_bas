@@ -17,4 +17,18 @@ func main() {
 		fmt.Printf("i=%v v=%v\n", i, v)
 	}
 
+	slice2 := slice[1:2] //  slice [ 20, 30, 40]    [30]
+	slice2[0] = 100      // 因为arr , slice 和slice2 指向的数据空间是同一个，因此slice2[0]=100，其它的都变化
+
+	fmt.Println("slice2=", slice2)
+	fmt.Println("slice=", slice)
+	fmt.Println("arr=", arr)
+
+	// 用append内置函数， 可以对切片进行动态追加
+	var slice3 []int = []int{100, 200, 300}
+	// 通过append直接给slice3追加具体的元素
+	slice3 = append(slice3, 400, 500)
+	// 通过append将切片slice3追加给slice3
+	slice3 = append(slice3, slice3...)
+	fmt.Println("slice3=", slice3)
 }

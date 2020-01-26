@@ -53,7 +53,8 @@ func BubblieSort(arr *[5]int) {
 	temp := 0 // 临时变量（用户做交换）
 	for i := 0; i < len(*arr)-1; i++ {
 		for j := 0; j < len(*arr)-1-i; j++ {
-			if (*arr)[j] > (*arr)[j+1] {
+			// if (*arr)[j] > (*arr)[j+1] { // 从小到大排序
+			if (*arr)[j] < (*arr)[j+1] { // 从大到小排序
 				// 交换
 				temp = (*arr)[j]
 				(*arr)[j] = (*arr)[j+1]

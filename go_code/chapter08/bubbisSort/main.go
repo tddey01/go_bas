@@ -70,4 +70,6 @@ func main() {
 	// 将数组传递个一个函数完成排序
 	BubblieSort(&arr)
 
+	fmt.Println("main arr=", arr) // 有序
+
 }

@@ -25,7 +25,7 @@ func main() {
 	//演示map的查找
 	val, ok := cities["no2"]
 	if ok {
-		fmt.Printf("有no1 key 值为%v\n", val)
+		fmt.Printf("有no2 key 值为%v\n", val)
 	} else {
 		fmt.Printf("没有no1 key\n")
 	}

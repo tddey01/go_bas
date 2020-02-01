@@ -28,5 +28,6 @@ func main() {
 		"hero2": "卢俊义",
 		"hero3": "李二牛",
 	}
+	heroes["hero4"] = "林冲"
 	fmt.Println(heroes)
 }

@@ -14,6 +14,7 @@ func main() {
 		fmt.Printf("k=%v v=%v\n", k, v)
 	}
 
+	fmt.Println("cities 有", len(cities), "对 key-value")
 	//使用for -range遍历一个结构笔记复杂的map
 	studentMap := make(map[string]map[string]string)
 

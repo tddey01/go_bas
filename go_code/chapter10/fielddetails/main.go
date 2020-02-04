@@ -14,6 +14,11 @@ type Person struct {
 	map1   map[string]string // 切片
 }
 
+type Monster struct {
+	Name string
+	Age  int
+}
+
 func main() {
 	// 定义结构体变量
 	var p1 Person
@@ -44,5 +49,18 @@ func main() {
 	p1.ptr = &p1.Age //指针
 
 	fmt.Println(p1)
+
+	// 不同结构体遍历的字段是独立，互不影响， 一个结构体变量字段的更改
+	// 不影响另一个， 结构体的是值类型
+	var monster1 Monster
+	monster1.Name = "牛魔王"
+	monster1.Age = 500
+
+	monster2 := monster1
+
+	monster2.Name = "青牛精" // 值赋值 或者值拷贝 方法
+
+	fmt.Println("monster1=", monster1) // monster1= {牛魔王 500}
+	fmt.Println("monster2=", monster2) // monster2= {青牛精 500}
 
 }

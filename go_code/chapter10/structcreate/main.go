@@ -9,7 +9,7 @@ type Person struct {
 
 func main() {
 	//方式1
-	//方式2
+	//方式2 推荐使用第二种
 	p2 := Person{"mary", 19}
 	// p2.Name = "tom"
 	// p2.Age = 18

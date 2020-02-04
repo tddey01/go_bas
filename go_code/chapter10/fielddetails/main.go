@@ -39,6 +39,10 @@ func main() {
 	p1.map1 = make(map[string]string)
 	p1.map1["key1"] = "tom"
 
+	p1.Age = 10
+
+	p1.ptr = &p1.Age //指针
+
 	fmt.Println(p1)
 
 }

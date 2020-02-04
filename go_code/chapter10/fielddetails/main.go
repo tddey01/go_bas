@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // 如果结构体的字段类型： 指针、slice、和map的零值都是nil，即还没有分配空间
-// 如果需要使用这样的子弹， 需要先make，才能使用
+// 如果需要使用这样的字段， 需要先make，才能使用
 
 type Person struct {
 	Name   string

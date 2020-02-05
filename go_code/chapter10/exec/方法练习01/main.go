@@ -36,6 +36,15 @@ func (mu MethodUtils) area(len float64, width float64) float64 {
 	return len * width
 }
 
+// 4 、 编写一个方法  判断一个数是奇数还是偶数
+func (mu MethodUtils) JudgeNum(num int) {
+	if num%2 == 0 {
+		fmt.Println(num, "是偶数")
+	} else {
+		fmt.Println(num, "是奇数")
+	}
+}
+
 func main() {
 	/*
 		1)编写结构体(MethodUtils)，编程一个方法，方法不需要参数，
@@ -50,5 +59,8 @@ func main() {
 
 	areaRes := mu.area(2.5, 8.7)
 	fmt.Println("面积等于 areaRes=", areaRes)
+
+	// 4 、判断一个数是奇数还是偶数
+	(&mu).JudgeNum(10)
 
 }

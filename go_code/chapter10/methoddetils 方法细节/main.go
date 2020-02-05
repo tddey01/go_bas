@@ -14,9 +14,28 @@ func (i integer) print() {
 func (i *integer) change() {
 	*i = *i + 1
 }
+
+type Student struct {
+	Name string
+	Age  integer
+}
+
+// 给Student实现方法String()
+func (stu *Student) String() string {
+	str := fmt.Sprintf("Name=[%v] Age=[%v]", stu.Name, stu.Age)
+	return str
+}
+
 func main() {
 	var i integer = 10
 	i.print()
 	i.change()
 	fmt.Println("i=", i)
+
+	// 定义一个Student变量
+	stu := Student{
+		Name: "tom",
+		Age:  20,
+	}
+	fmt.Println(&stu) // 如果你实现了 *Student 类型的 String方法，就会自动调用
 }

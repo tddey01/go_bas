@@ -22,6 +22,44 @@ func (student *Student) say() string {
 		student.Name, student.Gender, student.Age, student.Id, student.Score)
 	return infoStr
 }
+
+/*
+1)编程创建一个Box结构体，在其中声明三个字段表示一个立方体的长、宽和高，长宽高要从终端获取
+2)声明一个方法获取立方体的体积。
+3)创建一个Box结构体变量，打印给定尺寸的立方体的体积
+*/
+type Box struct {
+	len    float64
+	width  float64
+	height float64
+}
+
+func (box *Box) getVolumn() float64 {
+	return box.len * box.width * box.height
+}
+
+// 景区门票案例
+
+// 一个景区根据游人的年龄收取不同价格的门票，比如年龄大于18，收费20元，其它情况门票免费.
+// 请编写Visitor结构体，根据年龄段决定能够购买的门票价格并输出
+
+type Visitor struct {
+	Name string
+	Age  int
+}
+
+func (visitor *Visitor) showPrice() {
+	if visitor.Age >= 90 || visitor.Age <= 8 {
+		fmt.Println("考虑到安全，就不要游玩")
+		return
+	}
+	if visitor.Age > 18 {
+		fmt.Printf("游客的名字为%v 年龄为%v 收费20元\n", visitor.Name, visitor.Age)
+	} else {
+		fmt.Println("免费")
+	}
+}
+
 func main() {
 	//测试
 	// 创建一个student实例变量
@@ -34,4 +72,26 @@ func main() {
 	}
 	str := stu.say()
 	fmt.Println(str)
+
+	//测试变量
+	var box Box
+	box.len = 1.1
+	box.width = 2.0
+	box.height = 3.0
+	volumn := box.getVolumn()
+	fmt.Printf("体积为=%.2f\n", volumn)
+
+	//测试
+	var v Visitor
+	for {
+		fmt.Println("请你的名字")
+		fmt.Scanln(&v.Name)
+		if v.Name == "n" {
+			fmt.Println("退出程序")
+			break
+		}
+		fmt.Println("请输入你的年龄")
+		fmt.Scanln(&v.Age)
+		v.showPrice()
+	}
 }

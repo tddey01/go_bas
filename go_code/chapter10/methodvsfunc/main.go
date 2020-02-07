@@ -40,7 +40,7 @@ func main() {
 
 
 	(&p).test04()
-	fmt.Println("main() p.name=", p.Name) // mary
+	fmt.Println("main() p.name=", p.Name) // maryv2ray statusv
 	p.test04() // 等价 (&p).test04 , 从形式上是传入值类型，但是本质仍然是地址拷贝
 
 }

@@ -17,4 +17,6 @@ func main() {
 	var stu1 = model.NewStudent("tom",88.8)
 	fmt.Println(*stu1) //&{....}
 
+	fmt.Println("name=", stu1.Name, " score=", stu1.GetScore())
+
 }

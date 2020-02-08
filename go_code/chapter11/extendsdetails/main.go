@@ -17,18 +17,29 @@ func (a *A) hello() {
 type B struct {
 	A
 }
+func (b *B) SayOk() {
+	fmt.Println("B SayOk", b.Name)
+}
 
 func main() {
 
-	var b B
-	b.A.Name = "tome"
-	b.A.age = 19
-	b.A.SayOk()
-	b.A.hello()
+	// var b B
+	// b.A.Name = "tom"
+	// b.A.age = 19
+	// b.A.SayOk()
+	// b.A.hello()
 
-	// 简化写法可以简化
-	b.Name = "smith"
-	b.age = 19
-	b.SayOk()
-	b.hello()
-}
+	// //上面的写法可以简化
+
+	// b.Name = "smith"
+	// b.age = 20
+	// b.SayOk()
+	// b.hello()
+
+	var b B
+	b.Name = "jack" // ok
+	b.A.Name = "scott"
+	b.age = 100  //ok
+	b.SayOk()  // B SayOk  jack
+	b.A.SayOk() //  A SayOk scott
+	b.hello() //  A hello ? "jack" 还是 "scott"

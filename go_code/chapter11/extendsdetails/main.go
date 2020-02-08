@@ -25,4 +25,10 @@ func main() {
 	b.A.age = 19
 	b.A.SayOk()
 	b.A.hello()
+
+	// 简化写法可以简化
+	b.Name = "smith"
+	b.age = 19
+	b.SayOk()
+	b.hello()
 }

@@ -40,7 +40,7 @@ func main() {
 	var a AInterface = stu
 	a.test01()
 
-	var t T = stu
+	var t T = stu // ok
 	fmt.Println(t)
 	var t2 interface{} = stu //也是类型 可以把任何类型的值传入
 	var num1 float64 = 8.8

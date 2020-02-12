@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type BInterface interface {
 	test01()
 }
@@ -29,8 +31,20 @@ func (stu Stu) test03() {
 
 }
 
+type T interface { //空接口 默认可以接受任何的数据类型
+
+}
+
 func main() {
 	var stu Stu
 	var a AInterface = stu
 	a.test01()
+
+	var t T = stu
+	fmt.Println(t)
+	var t2 interface{} = stu //也是类型 可以把任何类型的值传入
+	var num1 float64 = 8.8
+	t2 = num1
+	fmt.Println(t2)
+
 }

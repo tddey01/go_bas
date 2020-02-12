@@ -55,3 +55,4 @@ func main() {
 	computer.Working(phone)
 	computer.Working(camer)
 }
+// 接口就是引用类型

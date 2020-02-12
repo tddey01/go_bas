@@ -44,7 +44,6 @@ type Student struct {
 	Age   int
 	Score float64
 }
-
 //将Student的切片，安Score从大到小排序!!
 
 func main() {

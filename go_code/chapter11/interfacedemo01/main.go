@@ -34,7 +34,6 @@ func (c Camer) Stop() {
 
 //计算机
 type Computer struct {
-
 }
 
 //编写一个方法Working 方法 接收Usb接口类型变量
@@ -52,7 +51,7 @@ func main() {
 	phone := Phone{}
 	camer := Camer{}
 
-// 关键点
-computer.Working(phone)
-computer.Working(camer)
+	// 关键点
+	computer.Working(phone)
+	computer.Working(camer)
 }

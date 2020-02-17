@@ -26,14 +26,14 @@ type Binterface interface {
 	Hello()
 }
 
-type Monster struct{
-
+type Monster struct {
 }
-func (m Monster) Hello(){
+
+func (m Monster) Hello() {
 	fmt.Println("Monster Hello~~")
 }
 
-func (m Monster) Say(){
+func (m Monster) Say() {
 	fmt.Println("Monster Say~~")
 }
 func main() {
@@ -48,7 +48,7 @@ func main() {
 	//Monter 实现了AInterface和BInterface
 	var monster Monster
 	var a2 AInterface = monster
-	var b2 Binterface =  monster
+	var b2 Binterface = monster
 	a2.Say()
 	b2.Hello()
 

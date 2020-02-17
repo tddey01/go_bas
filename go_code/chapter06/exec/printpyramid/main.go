@@ -14,7 +14,7 @@ func printPyramid(totalLevel int) {
 		//j 表示每层答应多少*
 		for j := 1; j <= 2*i-1; j++ {
 			// if j == 1 || j == 2*i-1 || i == totalLevel {
-				fmt.Print("*")
+			fmt.Print("*")
 			// } else {
 			// 	fmt.Print(" ")
 			// }

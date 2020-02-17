@@ -57,5 +57,5 @@ func main() {
 	// }
 
 	//Unix 和UnixNano 的使用
-	fmt.Printf("Uninx时间戳=%v unixnano时间戳=%v\n",now.Unix(),now.UnixNano())
+	fmt.Printf("Uninx时间戳=%v unixnano时间戳=%v\n", now.Unix(), now.UnixNano())
 }

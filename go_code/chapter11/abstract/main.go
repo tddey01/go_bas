@@ -24,7 +24,7 @@ func (account *Account) Desposite(money float64, pwd string) {
 		return
 	}
 	account.Balance += money
-	fmt.Printf("存款成功 你当前账户余额=%v\n",account.Balance)
+	fmt.Printf("存款成功 你当前账户余额=%v\n", account.Balance)
 }
 
 // 2、 取款
@@ -41,7 +41,7 @@ func (account *Account) WithDraw(money float64, pwd string) {
 		return
 	}
 	account.Balance -= money
-	fmt.Printf("取款成功 你当前账户余额=%.2f\n",account.Balance)
+	fmt.Printf("取款成功 你当前账户余额=%.2f\n", account.Balance)
 }
 
 // 查询余额
@@ -63,9 +63,9 @@ func main() {
 		Balance:   100.00,
 	}
 	// for {
-		// 
+	//
 	account.Query("666")
 	account.Desposite(200, "666")
-	account.WithDraw(299.99,"666")
+	account.WithDraw(299.99, "666")
 	// }
 }

@@ -21,9 +21,10 @@ func (stu *Student) SetScore(score int) {
 }
 
 // 增加一个做算术题方法
-func (stu *Student) GetSum(n1 int,n2 int)int{
-return n1 + n2
+func (stu *Student) GetSum(n1 int, n2 int) int {
+	return n1 + n2
 }
+
 //小学生
 type Pupil struct {
 	Student // 嵌入了Student匿名的结构体
@@ -50,7 +51,7 @@ func main() {
 	pupil.testing()
 	pupil.Student.SetScore(70)
 	pupil.Student.ShowInfo()
-	fmt.Println("res=",pupil.Student.GetSum(10,24))
+	fmt.Println("res=", pupil.Student.GetSum(10, 24))
 
 	graduate := &Graduate{}
 	graduate.Student.Name = "jack"
@@ -58,5 +59,5 @@ func main() {
 	graduate.testing()
 	graduate.Student.SetScore(90)
 	graduate.Student.ShowInfo()
-	fmt.Println("res2=",graduate.Student.GetSum(30,50))
+	fmt.Println("res2=", graduate.Student.GetSum(30, 50))
 }

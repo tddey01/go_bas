@@ -18,7 +18,7 @@ func testString() {
 	// fmt.Printf("after modify:" , str)
 
 	// 转成byte类型 修改字符串数值
-	var byteSlice [] byte
+	var byteSlice []byte
 	byteSlice = []byte(str)
 	byteSlice[0] = '0'
 	str = string(byteSlice)
@@ -69,11 +69,11 @@ func testReverseStringV2() {
 	fmt.Println(str)
 }
 
-func testHuiWen(){
+func testHuiWen() {
 	var str = "上海自来水来自海上"
 	var r []rune = []rune(str) //转码
 
-	for i := 0; i <len(r)/2;i++ {
+	for i := 0; i < len(r)/2; i++ {
 		tmp := r[len(r)-i-1]
 		r[len(r)-i-1] = r[i]
 		r[i] = tmp

@@ -46,6 +46,6 @@ func main() {
 	var num1 float64 = 8.8
 	t2 = num1
 	t = num1
-	fmt.Println(t2,t)
+	fmt.Println(t2, t)
 
 }

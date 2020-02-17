@@ -64,22 +64,21 @@ func testPoint5() {
 	//new⽤用来分配除引⽤用类型的所有其他类型的内存，⽐比如 int、数组等
 }
 
-
-func modifyInt(a int){
+func modifyInt(a int) {
 	a = 1000
 }
-func testPoint6(){
+func testPoint6() {
 	var b int = 10
 	modifyInt(b)
 	fmt.Printf("b=%d\n", b)
 }
 
-func testPoint7(){
+func testPoint7() {
 	var a int = 10
-	var  b  *int = &a
+	var b *int = &a
 	var c *int = b
 	*c = 2200
-	fmt.Printf("*c=%d \n*b=%d  \na=%d\n", *c,*b,a)
+	fmt.Printf("*c=%d \n*b=%d  \na=%d\n", *c, *b, a)
 
 }
 
@@ -89,6 +88,6 @@ func main() {
 	// testPoint3() //指针变量量传参
 	// testPoint4() //指针变量量传参示例例2
 	// testPoint5()
-	// testPoint6()  
+	// testPoint6()
 	testPoint7()
 }

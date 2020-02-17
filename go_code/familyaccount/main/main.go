@@ -5,7 +5,7 @@ import (
 	"go_bas/go_code/familyaccount/utils"
 )
 
-func main()  {
+func main() {
 
 	fmt.Println("这个是面向对象的方式完成~~")
 	utils.NewFamilyAccount().MainMenu()

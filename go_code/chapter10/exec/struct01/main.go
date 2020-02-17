@@ -15,7 +15,7 @@ func main() {
 	var p2 *Person = &p1
 
 	fmt.Println((*p2).Age) // 10
-	fmt.Println(p2.Age) //10
+	fmt.Println(p2.Age)    //10
 	p2.Name = "tom"
 	fmt.Printf("p2.Name=%v p1.Name=%v\n", p2.Name, p1.Name)    //p2.Name=tom p1.Name=tom
 	fmt.Printf("p2.Name=%v p1.Name=%v\n", (*p2).Name, p1.Name) //p2.Name=tom p1.Name=tom

@@ -17,5 +17,5 @@ func main() {
 	start := time.Now().Unix()
 	test3()
 	end := time.Now().Unix()
-	fmt.Printf("执行test3()耗费时间为%v\n",end-start)
+	fmt.Printf("执行test3()耗费时间为%v\n", end-start)
 }

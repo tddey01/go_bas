@@ -1,10 +1,13 @@
 package main
+
 import "fmt"
+
 type Usb interface {
 	Say()
 }
 type Stu struct {
 }
+
 func (this *Stu) Say() {
 	fmt.Println("Say()")
 }

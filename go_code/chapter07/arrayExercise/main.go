@@ -63,22 +63,22 @@ func main() {
 	//2. 当我们得到随机数后，就放到一个数组 int数组
 	//3. 反转打印 , 交换的次数是  len / 2, 倒数第一个和第一个元素交换, 倒数第2个和第2个元素交换
 
-	var intArr3 [5]int 
+	var intArr3 [5]int
 	//为了每次生成的随机数不一样，我们需要给一个seed值
 	len := len(intArr3)
-	
+
 	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < len; i++ {
 		intArr3[i] = rand.Intn(100) //  0<=n<100
 	}
 
 	fmt.Println("交换前~=", intArr3)
-	//反转打印 , 交换的次数是  len / 2, 
+	//反转打印 , 交换的次数是  len / 2,
 	//倒数第一个和第一个元素交换, 倒数第2个和第2个元素交换
-	temp := 0  //做一个临时变量
-	for i := 0; i < len / 2; i++ {
-		temp = intArr3[len - 1 - i]  
-		intArr3[len - 1 - i] = intArr3[i]
+	temp := 0 //做一个临时变量
+	for i := 0; i < len/2; i++ {
+		temp = intArr3[len-1-i]
+		intArr3[len-1-i] = intArr3[i]
 		intArr3[i] = temp
 	}
 

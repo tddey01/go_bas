@@ -9,9 +9,8 @@ func main() {
 	cities["no3"] = "上海"
 	fmt.Println(cities)
 
-
 	//因为 no3这个key已经存在，因此下面的这句话就是修改
-	cities["no3"] = "上海~" 
+	cities["no3"] = "上海~"
 	fmt.Println(cities)
 
 	//演示删除
@@ -20,7 +19,6 @@ func main() {
 	//当delete指定的key不存在时，删除不会操作，也不会报错
 	delete(cities, "no4")
 	fmt.Println(cities)
-
 
 	//演示map的查找
 	val, ok := cities["no2"]

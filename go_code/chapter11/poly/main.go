@@ -34,7 +34,7 @@ func (c Camer) Stop() {
 	fmt.Println("相机停止工作")
 }
 
-func main(){
+func main() {
 	// 定义一个Usb接口数组，可以存放Phone和Camear的结构变量
 	// 这里就是体现出多态数组
 	var UsbArr [3]Usb

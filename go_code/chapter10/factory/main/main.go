@@ -14,7 +14,7 @@ func main() {
 	fmt.Println(stu)
 
 	// /定student结构体是首字母小写，我们可以通过工厂模式来解决
-	var stu1 = model.NewStudent("tom",88.8)
+	var stu1 = model.NewStudent("tom", 88.8)
 	fmt.Println(*stu1) //&{....}
 
 	fmt.Println("name=", stu1.Name, " score=", stu1.GetScore())

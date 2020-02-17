@@ -25,7 +25,7 @@ func main() {
 		if name == "张无忌" && pwd == "888" {
 			fmt.Println("恭喜你登录成功")
 			break
-		} else {            
+		} else {
 			loginChance--
 			if loginChance == 0 {
 				fmt.Println("登录失败 请稍后再次登录")

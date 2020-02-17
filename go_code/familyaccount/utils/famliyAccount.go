@@ -20,16 +20,17 @@ type FamliyAccount struct {
 	// 当有收支时， 只需要对details 进行拼接处理
 	details string // 空格符
 }
+
 // 编写一个工厂模式构造方法 返回一个FamilyAccount实例
 func NewFamilyAccount() *FamliyAccount {
 	return &FamliyAccount{
-		key : "",
-		loop : true,
-		balance : 10000.0,
-		money : 0.0,
-		note : "",
-		flag : false,
-		details : "收支\t账户金额\t收支金额\t说    明",
+		key:     "",
+		loop:    true,
+		balance: 10000.0,
+		money:   0.0,
+		note:    "",
+		flag:    false,
+		details: "收支\t账户金额\t收支金额\t说    明",
 	}
 
 }

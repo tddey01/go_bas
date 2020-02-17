@@ -1,0 +1,3 @@
+hello,world!
+北京！abc!golang!
+go,hello,world!

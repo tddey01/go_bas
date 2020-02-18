@@ -7,11 +7,11 @@ import (
 
 //定义一个结构体
 type Monster struct {
-	Name     string
-	Age      int
-	Birthday string
-	Sal      float64
-	Skill    string
+	Name     string `json:"monster_name"`
+	Age      int    `json:"monster_age"`
+	Birthday string `json:"monster_birthday"`
+	Sal      float64 `json:"monster_sal"`
+	Skill    string `json:"monster_skill"`
 }
 
 func testStruct() {
@@ -68,7 +68,7 @@ func testSlice() {
 	m2["name"] = "tom"
 	m2["age"] = "17"
 	//m2["address"] = "山东"
-	m2["address"] = [2]string{"山东","山西"}
+	m2["address"] = [2]string{"山东", "山西"}
 	slice = append(slice, m2)
 
 	// 将切片进行序列化

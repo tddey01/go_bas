@@ -19,7 +19,7 @@ func main() {
 	// 要及时关闭句柄，防止内存泄漏
 	defer file.Close()
 	//准备写入5句 "hello Gardon"
-	str := "hello,Gardon\n" // /n表示换行符 转义
+	str := "hello,Gardon\r\n" // /n表示换行符 转义
 
 	// 写入时使用带缓存的 *Writer
 	writer := bufio.NewWriter(file)

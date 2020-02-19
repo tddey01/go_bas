@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	`` // 生命一个变量 保存接收用户输入的选项
+	// 生命一个变量 保存接收用户输入的选项
 	key := ""
 	// 声明一个变量 控制是否退出for循环
 	loop := true
@@ -53,7 +53,7 @@ func main() {
 			fmt.Println("本次支付的金额")
 			fmt.Scanln(&money)
 			//这里需要做一个必要判断
-			if money > balance {
+			if money >  balance {
 				fmt.Println("账户余额不足")
 				break
 			}

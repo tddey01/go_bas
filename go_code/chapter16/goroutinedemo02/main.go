@@ -52,3 +52,5 @@ func main() {
 	}
 	lock.Unlock()
 }
+
+// go build -race main.go

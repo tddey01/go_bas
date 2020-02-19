@@ -22,3 +22,5 @@ func TestHello(t *testing.T) {
 	fmt.Println("TestHello被调用.....")
 
 }
+
+// go test -v -test.run TestAddUpper 测试用例方法

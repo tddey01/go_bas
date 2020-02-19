@@ -30,32 +30,32 @@ func unmarshlStruct() {
 	fmt.Printf("反序列化后 Monster=%v\n", monster)
 }
 
-// //将map进行序列化
-// func testMap() string {
-// 	//定义一个map
-// 	var a map[string]interface{}
-// 	//使用map,需要make
-// 	a = make(map[string]interface{})
-// 	a["name"] = "红孩儿~~~~~~"
-// 	a["age"] = 30
-// 	a["address"] = "洪崖洞"
+//将map进行序列化
+func testMap() string {
+	//定义一个map
+	var a map[string]interface{}
+	//使用map,需要make
+	a = make(map[string]interface{})
+	a["name"] = "红孩儿~~~~~~"
+	a["age"] = 30
+	a["address"] = "洪崖洞"
 
-// 	//将a这个map进行序列化
-// 	//将monster 序列化
-// 	data, err := json.Marshal(a)
-// 	if err != nil {
-// 		fmt.Printf("序列化错误 err=%v\n", err)
-// 	}
-// 	//输出序列化后的结果
-// 	//fmt.Printf("a map 序列化后=%v\n", string(data))
-// 	return string(data)
+	//将a这个map进行序列化
+	//将monster 序列化
+	data, err := json.Marshal(a)
+	if err != nil {
+		fmt.Printf("序列化错误 err=%v\n", err)
+	}
+	//输出序列化后的结果
+	//fmt.Printf("a map 序列化后=%v\n", string(data))
+	return string(data)
 
-// }
+}
 
 //演示将json字符串，反序列化成map
 func unmarshalMap() {
-	str := "{\"address\":\"洪崖洞\",\"age\":30,\"name\":\"红孩儿\"}"
-
+	//str := "{\"address\":\"洪崖洞\",\"age\":30,\"name\":\"红孩儿\"}"
+	str := testMap()
 	//定义一个map
 	var a map[string]interface{}
 

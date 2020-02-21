@@ -36,6 +36,13 @@ func reflectTest02(b interface{}) {
 
 	rval := reflect.ValueOf(b)
 
+	//3、  获取 变量对应的Kind
+	// 1、rVal.kind() -->
+	kind1 := rval.Kind()
+	// 2、rType.Kind() -->
+	kind2 := rType.Kind()
+	fmt.Printf("Kind1 =%v kind2 =%v\n", kind1, kind2)
+
 	iv := rval.Interface()
 	fmt.Printf("iv=%v iv=%T\n", iv, iv)
 	// 将interface{} 通过断言转成需要的类型

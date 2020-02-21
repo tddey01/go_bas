@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/go_code/chapter06/funcdemo01/utils"
+	"go_bas/go_code/chapter06/funcdemo01/utils"
 )
 
 func main() {

@@ -16,14 +16,12 @@ func main() {
 	var key int
 	// 判断是否还继续显示菜单
 	var loop = true
-
 	for loop {
 		fmt.Println("------------------------欢迎登陆多人聊天室-------------")
 		fmt.Println("\t\t\t 1 登陆聊天室")
 		fmt.Println("\t\t\t 2 注册用户")
 		fmt.Println("\t\t\t 3 退出系统")
 		fmt.Println("\t\t\t 3 请选择(1-3)")
-
 		fmt.Scanf("%d\n", &key)
 
 		switch key {
@@ -55,7 +53,6 @@ func main() {
 		// } else {
 		// 	fmt.Println("登录成功")
 		// }
-
 	} else if key == 2 {
 		fmt.Println("进行用户注册逻辑")
 	}

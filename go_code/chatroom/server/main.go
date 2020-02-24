@@ -24,7 +24,6 @@ func readPkg(conn net.Conn) (mes message.Message, err error) {
 	//根据读到的长度 [:4]转成一个uint32类型
 	var pkgLen uint32
 	pkgLen = binary.BigEndian.Uint32(buf[:4])
-
 	// 根据 pkgLen 读取消息内容
 	n, err := conn.Read(buf[:pkgLen])
 	if n != int(pkgLen) || err != nil {
@@ -32,7 +31,6 @@ func readPkg(conn net.Conn) (mes message.Message, err error) {
 		fmt.Println("conn.Read(buf[:pkgLen]) err=", err)
 		return
 	}
-
 	// 吧pkgLen 反序列化成 -> message.Message
 	//技术就是一层窗户纸 &mes!!
 	err = json.Unmarshal(buf[:pkgLen], &mes)
@@ -76,13 +74,11 @@ func serverProcessLogin(conn net.Conn, mes *message.Message) (err error) {
 		fmt.Println("json.Unmarshal([]byte(mes.Data), &loginMes) err=", err)
 		return
 	}
-
 	// 1 先声明一个 resMes
 	var resMes message.Message
 	resMes.Type = message.LoginResMesType
 	// 2  在声明一个 LoginResMes 并完成赋值
 	var loginResMes message.LoginResMes
-
 	// 如果用户id = 100 密码=123456 认为是合法 否则不合法
 	if loginMes.UserId == 100 && loginMes.UserPwd == "123456" {
 		// 合法
@@ -93,22 +89,18 @@ func serverProcessLogin(conn net.Conn, mes *message.Message) (err error) {
 		loginResMes.Code = 500 // 500 状态码  表示该用户不存在
 		loginResMes.Error = "表示该用户不存在 请注册在使用..."
 	}
-
 	// 3  将loginResMes 序列化
 	data, err := json.Marshal(loginResMes)
 	if err != nil {
 		fmt.Println("json.Marshal(loginResMes) 序列化失败 err=", err)
 	}
-
 	// 4 将data 赋值给 resMes
 	resMes.Data = string(data)
-
 	// 5 对resMes 进行序列化 ， 准备发送
 	data, err = json.Marshal(resMes)
 	if err != nil {
 		fmt.Println("json.Marshal(resMes) err=", err)
 	}
-
 	// 6 发送data  我们将其封装到一个writePkg函数
 	err = writedPkg(conn, data)
 	return
@@ -122,12 +114,10 @@ func serverProcessMes(conn net.Conn, mes *message.Message) (err error) {
 	case message.LoginMesType:
 		// 处理登录逻辑
 		err = serverProcessLogin(conn, mes)
-
 	case message.RegisterMesType:
 	//注册逻辑
 	default:
 		fmt.Println("消息类型不存在  无法处理.....")
-
 	}
 	return
 }
@@ -136,7 +126,6 @@ func serverProcessMes(conn net.Conn, mes *message.Message) (err error) {
 func process(conn net.Conn) {
 	// 这个需要及时延迟关闭 conn
 	defer conn.Close()
-
 	// 读客户端发送的信息
 	for {
 		// 这里我们将读取数据包，直接封装成一个函数 readpkg()， 返回Message，Err
@@ -150,7 +139,6 @@ func process(conn net.Conn) {
 				return
 			}
 		}
-
 		//fmt.Println("mes=", mes)
 		err = serverProcessMes(conn, &mes)
 		if err != nil {
@@ -170,13 +158,11 @@ func main() {
 		fmt.Println("net.Listen err=", err)
 		return
 	}
-
 	// 一旦监听成功， 就等待客户连接服务器
 	for {
 		fmt.Println("等待客户端连接服务器....")
 		conn, err := listen.Accept()
 		if err != nil {
-
 		}
 		//一旦连接成功， 则启动一个携程和客户端保持通讯
 		go process(conn)

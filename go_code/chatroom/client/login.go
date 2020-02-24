@@ -20,50 +20,41 @@ func login(userId int, userPwd string) (err error) {
 		return
 	}
 	defer conn.Close()
-
 	//  2 准备通过conn发送消息给服务器
 	var mes message.Message
 	mes.Type = message.LoginMesType
-
 	//3  创建一个Loginmes 结构体
 	var LoginMes message.LoginMes
 	LoginMes.UserId = userId
 	LoginMes.UserPwd = userPwd
-
 	//  4  将loginMes序列胡
 	data, err := json.Marshal(LoginMes)
 	if err != nil {
 		fmt.Println("json.Marshal(LoginMes) err=", err)
 		return
 	}
-
 	// 第五步  把data 赋给了mes.Data 字段
 	mes.Data = string(data)
-
 	// 6 将mes进行序列化
 	data, err = json.Marshal(mes)
 	if err != nil {
 		fmt.Println("json.Marshal(mes) err=", err)
 		return
 	}
-
 	//7 到这个时候  ， 就是我们要发送的的消息
 	//7.1 先把data的长度发送给服务器
 	// 先获取到 data的长度->转成一个表示长度的byte切片
 	var pkgLen uint32
 	pkgLen = uint32(len(data))
-
 	// 先定义一个切片
 	var buf [4]byte
 	binary.BigEndian.PutUint32(buf[0:4], pkgLen)
-
 	// 现在发送这个长度
 	n, err := conn.Write(buf[:4])
 	if n != 4 || err != nil {
 		fmt.Println("conn.Write err=", err)
 		return
 	}
-
 	//fmt.Printf("客户端 发送消息长度=%d\n",len(data))
 	// 发送消息本身
 	_, err = conn.Write(data)
@@ -71,7 +62,6 @@ func login(userId int, userPwd string) (err error) {
 		fmt.Println("conn.Write(data) err=", err)
 		return
 	}
-
 	// 休眠20
 	//time.Sleep(time.Second * 10)
 	//fmt.Println("休眠了10秒...")
@@ -84,7 +74,6 @@ func login(userId int, userPwd string) (err error) {
 	//将mes的Data 部分 反序列化成LoginReMes
 	var loginResMes message.LoginResMes
 	err = json.Unmarshal([]byte(mes.Data), &loginResMes)
-
 	if loginResMes.Code == 200 {
 		fmt.Println("登录成功")
 	} else if loginResMes.Code == 500 {

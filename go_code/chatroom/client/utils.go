@@ -23,7 +23,6 @@ func readPkg(conn net.Conn) (mes message.Message, err error) {
 	//根据读到的长度 [:4]转成一个uint32类型
 	var pkgLen uint32
 	pkgLen = binary.BigEndian.Uint32(buf[:4])
-
 	// 根据 pkgLen 读取消息内容
 	n, err := conn.Read(buf[:pkgLen])
 	if n != int(pkgLen) || err != nil {
@@ -31,16 +30,13 @@ func readPkg(conn net.Conn) (mes message.Message, err error) {
 		fmt.Println("conn.Read(buf[:pkgLen]) err=", err)
 		return
 	}
-
 	// 吧pkgLen 反序列化成 -> message.Message
 	//技术就是一层窗户纸 &mes!!
 	err = json.Unmarshal(buf[:pkgLen], &mes)
 	if err != nil {
 		fmt.Println("json.Unmarshal(buf[:pkgLen],&mes) err=", err)
-
 		return
 	}
-
 	return
 }
 

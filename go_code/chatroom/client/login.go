@@ -80,5 +80,4 @@ func login(userId int, userPwd string) (err error) {
 		fmt.Println(loginResMes.Error)
 	}
 	return
-
 }

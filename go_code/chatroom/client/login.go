@@ -4,8 +4,9 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
-	"go_bas/go_code/chatroom/common/massage"
+	message "go_bas/go_code/chatroom/common/massage"
 	"net"
+	"time"
 )
 
 // 写一个函数，完成登录
@@ -63,6 +64,19 @@ func login(userId int, userPwd string) (err error) {
 		fmt.Println("conn.Write err=", err)
 		return
 	}
-	fmt.Printf("客户端 发送消息长度=%d\n",len(data))
+
+	//fmt.Printf("客户端 发送消息长度=%d\n",len(data))
+	// 发送消息本身
+	_,err =  conn.Write(data)
+	if err!=nil{
+		fmt.Println("conn.Write(data) err=",err)
+		return
+	}
+
+	// 休眠20
+	time.Sleep(time.Second * 10 )
+	fmt.Println("休眠了10秒...")
+
 	return
+
 }

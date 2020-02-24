@@ -1,10 +1,68 @@
 package main
 
-import "fmt"
+import (
+	"encoding/binary"
+	"encoding/json"
+	"fmt"
+	"go_bas/go_code/chatroom/common/massage"
+	"net"
+)
 
 // 写一个函数，完成登录
 func login(userId int, userPwd string) (err error) {
 	// 开始定协议...
-	fmt.Printf("userId=%v userPwd=%v\n", userId, userPwd)
-	return nil
+	//fmt.Printf("userId=%v userPwd=%v\n", userId, userPwd)
+	//	//return nil
+	// 第一步  连接到服务器
+	conn, err := net.Dial("tcp", "localhost:8889")
+	if err != nil {
+		fmt.Println("net.Dial err=", err)
+		return
+	}
+	defer conn.Close()
+
+	//  2 准备通过conn发送消息给服务器
+	var mes message.Message
+	mes.Type = message.LoginMesType
+
+	//3  创建一个Loginmes 结构体
+	var LoginMes message.LoginMes
+	LoginMes.UserId = userId
+	LoginMes.UserPwd = userPwd
+
+	//  4  将loginMes序列胡
+	data, err := json.Marshal(LoginMes)
+	if err != nil {
+		fmt.Println("json.Marshal(LoginMes) err=", err)
+		return
+	}
+
+	// 第五步  把data 赋给了mes.Data 字段
+	mes.Data = string(data)
+
+	// 6 将mes进行序列化
+	data, err = json.Marshal(mes)
+	if err != nil {
+		fmt.Println("json.Marshal(mes) err=", err)
+		return
+	}
+
+	//7 到这个时候  ， 就是我们要发送的的消息
+	//7.1 先把data的长度发送给服务器
+	// 先获取到 data的长度->转成一个表示长度的byte切片
+	var pkgLen uint32
+	pkgLen = uint32(len(data))
+
+	// 先定义一个切片
+	var buf [4]byte
+	binary.BigEndian.PutUint32(buf[0:4], pkgLen)
+
+	// 现在发送这个长度
+	n, err := conn.Write(buf[:4])
+	if n != 4 || err != nil {
+		fmt.Println("conn.Write err=", err)
+		return
+	}
+	fmt.Printf("客户端 发送消息长度=%d\n",len(data))
+	return
 }

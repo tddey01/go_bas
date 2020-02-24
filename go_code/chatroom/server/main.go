@@ -9,14 +9,14 @@ import (
 func process(conn net.Conn) {
 	// 这个需要及时延迟关闭 conn
 	defer conn.Close()
-
+	buf := make([]byte, 8096)
 	// 读客户端发送的信息
 	for {
 		// 先定义一个切片
-		buf := make([]byte, 8096)
+
 		fmt.Println("等待读取客户端发送的数据....")
- 		n,err := conn.Read(buf[:4])
- 		if n != 4||err != nil{
+ 		_,err := conn.Read(buf[:4])
+ 		if err != nil{
  			fmt.Println("conn.Read(buf[:4]) err=",err)
 			return
 		}

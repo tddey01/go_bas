@@ -15,7 +15,7 @@ func main() {
 	}
 	defer conn.Close()
 
-	_, err = conn.Do("HSet", "","name", "joyy", 10)
+	_, err = conn.Do("HSet", "", "name", "joyy", 10)
 	if err != nil {
 		fmt.Println("conn.Do err=", err)
 		return

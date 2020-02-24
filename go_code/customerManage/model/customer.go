@@ -25,7 +25,7 @@ func NewCustomer(id int, name string, gender string, age int, phone string, emai
 }
 
 //  第二种创建customer实例方法 不带id的
-func NewCustomer2( name string, gender string, age int, phone string, email string) Customer {
+func NewCustomer2(name string, gender string, age int, phone string, email string) Customer {
 	return Customer{
 		Name:   name,
 		Gender: gender,
@@ -34,6 +34,7 @@ func NewCustomer2( name string, gender string, age int, phone string, email stri
 		Email:  email,
 	}
 }
+
 // 返回用户的信息 格式化的字符串
 func (this Customer) GetInfo() string {
 	info := fmt.Sprintf("%v\t%v\t%v\t%v\t%v\t%v\t", this.Id, this.Name, this.Gender, this.Age, this.Phone, this.Email)

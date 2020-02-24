@@ -12,10 +12,10 @@ func main() {
 	//var allChan chan interface{}
 	allChan := make(chan interface{}, 3)
 
-	allChan<- 10
-	allChan<- "tom jack"
+	allChan <- 10
+	allChan <- "tom jack"
 	cat := Cat{"小花猫", 4}
-	allChan<- cat
+	allChan <- cat
 
 	//我们希望获得到管道中的第三个元素，则先将前2个推出
 	<-allChan
@@ -29,5 +29,5 @@ func main() {
 	//使用类型断言
 	a := newCat.(Cat)
 	fmt.Printf("newCat.Name=%v\n", a.Name)
-	fmt.Println(a.Name,a.Age)
+	fmt.Println(a.Name, a.Age)
 }

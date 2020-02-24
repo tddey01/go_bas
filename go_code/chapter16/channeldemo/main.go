@@ -17,8 +17,8 @@ func main() {
 	intChan <- num
 	intChan <- 50
 	// 如果 从channel取出数据后， 可以继续放入
-	<- intChan
-	intChan <- 21  // 注意事项  当我们给管道写入数据时，不能超过其容量
+	<-intChan
+	intChan <- 21 // 注意事项  当我们给管道写入数据时，不能超过其容量
 
 	//4 看看管道的长度和cap（容量）
 	fmt.Printf("channel len=%v  cap=%v \n", len(intChan), cap(intChan)) // 2 3

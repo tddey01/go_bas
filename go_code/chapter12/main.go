@@ -53,7 +53,7 @@ func main() {
 			fmt.Println("本次支付的金额")
 			fmt.Scanln(&money)
 			//这里需要做一个必要判断
-			if money >  balance {
+			if money > balance {
 				fmt.Println("账户余额不足")
 				break
 			}

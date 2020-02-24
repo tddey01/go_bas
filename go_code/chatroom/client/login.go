@@ -6,7 +6,6 @@ import (
 	"fmt"
 	message "go_bas/go_code/chatroom/common/massage"
 	"net"
-	"time"
 )
 
 // 写一个函数，完成登录
@@ -67,16 +66,30 @@ func login(userId int, userPwd string) (err error) {
 
 	//fmt.Printf("客户端 发送消息长度=%d\n",len(data))
 	// 发送消息本身
-	_,err =  conn.Write(data)
-	if err!=nil{
-		fmt.Println("conn.Write(data) err=",err)
+	_, err = conn.Write(data)
+	if err != nil {
+		fmt.Println("conn.Write(data) err=", err)
 		return
 	}
 
 	// 休眠20
-	time.Sleep(time.Second * 10 )
-	fmt.Println("休眠了10秒...")
+	//time.Sleep(time.Second * 10)
+	//fmt.Println("休眠了10秒...")
+	// 这里还要处理服务器返回消息
+	mes, err = readPkg(conn) // mes 就是
+	if err != nil {
+		fmt.Println("readPkg(conn) err", err)
+		return
+	}
+	//将mes的Data 部分 反序列化成LoginReMes
+	var loginResMes message.LoginResMes
+	err = json.Unmarshal([]byte(mes.Data), &loginResMes)
 
+	if loginResMes.Code == 200 {
+		fmt.Println("登录成功")
+	} else if loginResMes.Code == 500 {
+		fmt.Println(loginResMes.Error)
+	}
 	return
 
 }

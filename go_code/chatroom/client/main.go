@@ -47,7 +47,8 @@ func main() {
 		fmt.Println("请输入用户密码")
 		fmt.Scanf("%s\n", &userPwd)
 		// 把登录的函数 写到另一个文件内 比如写在login文件
-		login(userId, userPwd)
+		login(userId, userPwd) 
+		
 		// if err != nil {
 		// 	fmt.Println("登录失败")
 		// } else {

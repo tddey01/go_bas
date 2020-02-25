@@ -2,9 +2,10 @@ package message
 
 // 确定消息类型 定义常量
 const (
-	LoginMesType    = "LoginMes"
-	LoginResMesType = "LoginResMes"
-	RegisterMesType = "RegisterMes"
+	LoginMesType       = "LoginMes"
+	LoginResMesType    = "LoginResMes"
+	RegisterMesType    = "RegisterMes"
+	RegisterResMesType = "RegisterResMes"
 )
 
 type Message struct {
@@ -14,7 +15,7 @@ type Message struct {
 
 // 先定义 两个消息 需要在增加
 type LoginMes struct {
-	UserId   int    `json:"userId`    // 用户id
+	UserId   int    `json:"userId"`   // 用户id
 	UserPwd  string `json:"userPwd"`  // 用户密码
 	UserName string `json:"userName"` // 用户名
 }
@@ -25,5 +26,10 @@ type LoginResMes struct {
 }
 
 type RegisterMes struct {
-	//...
+	User User `json:"user"` // 类型就是User结构体
+}
+
+type RegisterResMes struct {
+	Code  int    `json:"code"`  // 返回状态吗   400 表示未该用户占用  200 表示登录成功
+	Error string `json:"error"` // 返回错误信息
 }

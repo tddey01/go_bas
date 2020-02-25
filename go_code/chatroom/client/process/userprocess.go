@@ -61,7 +61,7 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 		fmt.Println("conn.Write err=", err)
 		return
 	}
-	//fmt.Printf("客户端 发送消息长度=%d\n",len(data))
+	fmt.Printf("客户端 发送消息长度=%d 内容=%v\n", len(data), string(data))
 	// 发送消息本身
 	_, err = conn.Write(data)
 	if err != nil {
@@ -95,7 +95,8 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 		for {
 			ShowMenu()
 		}
-	} else if loginResMes.Code == 500 {
+	} else {
+		//} else if loginResMes.Code == 500 {
 		fmt.Println(loginResMes.Error)
 	}
 	return

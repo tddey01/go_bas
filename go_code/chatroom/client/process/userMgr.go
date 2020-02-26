@@ -2,11 +2,13 @@ package process
 
 import (
 	"fmt"
+	"go_bas/go_code/chatroom/client/model"
 	message "go_bas/go_code/chatroom/common/massage"
 )
 
 // 客户端腰围的map
 var onlineUsers map[int]*message.User = make(map[int]*message.User, 10)
+var CurUser model.CurUser //我们在用户登录成功后，完成对CurUser初始化
 
 //var CurUser model.CurUser //我们在用户登录成功后，完成对CurUser初始化
 // 在客户端显示当前用户

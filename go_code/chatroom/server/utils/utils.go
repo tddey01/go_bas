@@ -12,7 +12,7 @@ import (
 type Transfer struct {
 	// 分析他应该有些字段
 	Conn net.Conn
-	Buf  [8096]byte // 这是传输时使用的缓存
+	Buf  [1024]byte // 这是传输时使用的缓存
 
 }
 
@@ -24,13 +24,13 @@ func (this *Transfer) ReadPkg() (mes message.Message, err error) {
 	// 如果客户端关闭了  conn 则就不会阻塞了
 	_, err = this.Conn.Read(this.Buf[:4])
 	if err != nil {
-		fmt.Println("conn.Read(buf[:4]) err= ", err)
+		fmt.Println("utils 27 conn.Read(Buf[:4])  err= ", err)
 		return
 	}
 	//fmt.Println("读到的buf长度 =",buf[:4])
 	//根据读到的长度 [:4]转成一个uint32类型
 	var pkgLen uint32
-	pkgLen = binary.BigEndian.Uint32(this.Buf[:4])
+	pkgLen = binary.BigEndian.Uint32(this.Buf[0:4])
 	// 根据 pkgLen 读取消息内容
 	n, err := this.Conn.Read(this.Buf[:pkgLen])
 	if n != int(pkgLen) || err != nil {

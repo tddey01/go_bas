@@ -129,7 +129,7 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 		fmt.Println("conn.Write err=", err)
 		return
 	}
-	fmt.Printf("客户端 发送消息长度=%d 内容=%v\n", len(data), string(data))
+	fmt.Printf("客户端 发送消息长度=%d 内容=%s\n", len(data), string(data))
 	// 发送消息本身
 	_, err = conn.Write(data)
 	if err != nil {
@@ -154,6 +154,19 @@ func (this *UserProcess) Login(userId int, userPwd string) (err error) {
 	err = json.Unmarshal([]byte(mes.Data), &loginResMes)
 	if loginResMes.Code == 200 {
 		//fmt.Println("登录成功")
+
+		// 可以显示当前在线哦用户列表 遍历loginResMes。UsersId的切片
+		fmt.Println("当前在线用户列表如下")
+		for _, v := range loginResMes.UsersId {
+			fmt.Println("用户id:\t", v)
+
+			// 如果我们要求不显示自己在线，增加下面代码
+			if v == userId {
+				continue
+			}
+		}
+		fmt.Println("\n\n")
+
 		// 这里我们还需要客户端启动一个携程
 		// 该携程保持和服务器端的通信， 如果服务器有数据推送给客户端
 		// 则接收并显示在客户端

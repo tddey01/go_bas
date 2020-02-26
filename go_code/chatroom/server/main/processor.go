@@ -18,6 +18,8 @@ type Processor struct {
 // 功能：根据客户端发送消息种类不同， 决定调用哪个函数来处理
 func (this *Processor) serverProcessMes(mes *message.Message) (err error) {
 	//
+	fmt.Println("mes=", mes)
+
 	switch mes.Type {
 	case message.LoginMesType:
 		// 处理登录逻辑

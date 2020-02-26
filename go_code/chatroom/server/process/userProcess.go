@@ -13,6 +13,8 @@ import (
 type UserProcess struct {
 	// 字段
 	Conn net.Conn
+	// 增加一个字段 表示conn是哪个用户
+	UserId int
 }
 
 //编写一个 函数serverProcessRegister函数  专门处理注册请求
@@ -106,6 +108,15 @@ func (this *UserProcess) ServerProcessLogin(mes *message.Message) (err error) {
 
 	} else {
 		loginResMes.Code = 200
+		//这里，因为用户登录成功，我们就把该登录成功的用放入到userMgr中
+		//将登录成功的用户的userId 赋给 this
+		this.UserId = loginMes.UserId
+		userMgr.AddOnlineUser(this)
+		//将当前在线用户的id 放入到loginResMes.UsersId
+		//遍历 userMgr.onlineUsers
+		for id := range userMgr.onlineUsers {
+			loginResMes.UsersId = append(loginResMes.UsersId, id)
+		}
 		fmt.Println(user, "登录成功")
 	}
 

@@ -25,14 +25,14 @@ func (this *SmsProcess) SendGroupMes(content string) (err error) {
 	// 序列化 smsMes
 	data, err := json.Marshal(smsMes)
 	if err != nil {
-		fmt.Println("SendGroupMes json.Marshal(smsMes) err=", err)
+		fmt.Println("SendGroupMes json.Marshal(smsMes) err=", err.Error())
 		return
 	}
 	mes.Data = string(data)
 	// 再次序列化
 	data, err = json.Marshal(mes)
 	if err != nil {
-		fmt.Println("SendGroupMes json.Marshal(smsMes) err=", err)
+		fmt.Println("SendGroupMes json.Marshal(smsMes) err=", err.Error())
 		return
 	}
 	//  将mes序列化后的发送给服务器
@@ -42,7 +42,7 @@ func (this *SmsProcess) SendGroupMes(content string) (err error) {
 	//发送
 	err = tf.WritedPkg(data)
 	if err != nil {
-		fmt.Println("SendGroupMes tf.WritedPkg(data) err=", err)
+		fmt.Println("SendGroupMes tf.WritedPkg(data) err=", err.Error())
 		return
 	}
 	return

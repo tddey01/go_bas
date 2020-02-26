@@ -63,6 +63,8 @@ func ProcessserverMes(conn net.Conn) {
 			// 2 把这个用户信息 转态保存到客户端map中
 			updateUserStatus(&notifyUserStatusMes)
 		// 处理
+		case message.SmsMesType: // 有人全发消息
+			outputGroupMes(&mes)
 		default:
 			fmt.Println("服务器端返回了未知消息类型")
 		}

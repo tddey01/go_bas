@@ -22,11 +22,6 @@ func outputOnlineUser() {
 
 // 编写一个方法， 处理返回的NotifyUserStatusMes
 func updateUserStatus(notifyUserStatusMes *message.NOtifyUserStatusMes) {
-	//user := &message.User{
-	//	//	UserId:     notifyUserStatusMes.UserId,
-	//	//	UserStatus: notifyUserStatusMes.Status,
-	//	//}
-	//	//onlineUsers[notifyUserStatusMes.UserId] = user
 	// 优化后代码
 	user, ok := onlineUsers[notifyUserStatusMes.UserId]
 	if !ok { // 原来没有

@@ -150,3 +150,8 @@ l='ls -lah'
 数据结构
 数值分析
 ```
+
+```
+go build -o server go_bas/go_code/chatroom/server/main
+go build -o client go_bas/go_code/chatroom/client/main
+```

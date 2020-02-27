@@ -143,3 +143,10 @@ gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no
 history='fc -l 1'
 l='ls -lah'
 ```
+
+
+```
+编译原理
+数据结构
+数值分析
+```

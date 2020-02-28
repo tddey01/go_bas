@@ -60,6 +60,31 @@ func InsterHeroNode2(head *HeroNode, newHeroNode *HeroNode) {
 
 }
 
+// 删除一个节点
+func DelHeroNode(head *HeroNode, id int) {
+
+	temp := head
+	flag := false
+	// 找到要删除的节点的no 和temp的下一个节点的no比较
+	for {
+		if temp.next == nil { // 说明到链表的最后
+			break
+		} else if temp.next.no == id {
+			//说明我们找到了.
+			flag = true
+			break
+		}
+		temp = temp.next
+	}
+
+	if flag { // 如果找到了 就删除
+		temp.next = temp.next.next
+	} else {
+		fmt.Println("sorry 要删除的id不存在")
+	}
+
+}
+
 // 显示聊表的所有节点信息
 func ListHeroNode(head *HeroNode) {
 	//	1 创建一个复制节点[跑龙套]
@@ -103,16 +128,21 @@ func main() {
 		nickname: "豹子头",
 	}
 
-	hero4 := &HeroNode{
-		no:       3,
-		name:     "吴用",
-		nickname: "智多星",
-	}
+	// hero4 := &HeroNode{
+	// 	no:       3,
+	// 	name:     "吴用",
+	// 	nickname: "智多星",
+	// }
 	// 3、 加入
 	InsterHeroNode2(head, hero3)
 	InsterHeroNode2(head, hero1)
 	InsterHeroNode2(head, hero2)
-	InsterHeroNode2(head, hero4)
+	// InsterHeroNode2(head, hero4)
 	//  显示
+	ListHeroNode(head)
+	// 5 删除
+	DelHeroNode(head, 2)
+	fmt.Println()
+	// 显示
 	ListHeroNode(head)
 }

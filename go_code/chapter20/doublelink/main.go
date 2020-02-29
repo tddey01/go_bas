@@ -31,7 +31,7 @@ func InsterHeroNode(head *HeroNode, newHeroNode *HeroNode) {
 	newHeroNode.pre = temp
 }
 
-//给链表插入一个结点
+//给双向链表插入一个结点
 //编写第2种插入方法，根据no 的编号从小到大插入..【实用】
 func InsterHeroNode2(head *HeroNode, newHeroNode *HeroNode) {
 	//	思路
@@ -58,15 +58,18 @@ func InsterHeroNode2(head *HeroNode, newHeroNode *HeroNode) {
 		fmt.Println("对不起 已经存在no=", newHeroNode.no)
 		return
 	} else {
-		newHeroNode.next = temp.next
+		newHeroNode.next = temp.next // ok
+		newHeroNode.pre = temp
+		if temp.next != nil {
+			temp.next = newHeroNode //ok
+		}
 		temp.next = newHeroNode
 	}
 
 }
 
-// 删除一个节点
+// 删除一个节点[双向链表删除一个节点]
 func DelHeroNode(head *HeroNode, id int) {
-
 	temp := head
 	flag := false
 	// 找到要删除的节点的no 和temp的下一个节点的no比较
@@ -80,9 +83,11 @@ func DelHeroNode(head *HeroNode, id int) {
 		}
 		temp = temp.next
 	}
-
 	if flag { // 如果找到了 就删除
 		temp.next = temp.next.next
+		if temp.next != nil {
+			temp.next.pre = temp
+		}
 	} else {
 		fmt.Println("sorry 要删除的id不存在")
 	}

@@ -80,7 +80,6 @@ func PlayGame(first *Boy, starNo int, countNum int) {
 		return
 	}
 	// 留一个 判断startNo <= 小孩的总数
-
 	// 2 需要设置定义一个辅助的指针 帮助我们删除小孩
 	tail := first
 	// 3 下一步 让tail执行环形链表的最后一个小孩， 这个非常重要
@@ -114,7 +113,6 @@ func PlayGame(first *Boy, starNo int, countNum int) {
 		}
 		fmt.Printf("小孩小孩编号为%d 出圈 \n", first.No)
 	}
-
 }
 
 func main() {

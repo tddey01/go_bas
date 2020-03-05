@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strconv"
 )
 
 // 使用数组来模拟一个栈的使用
@@ -104,13 +105,84 @@ func main() {
 		Top:    -1,
 	}
 
-	exp := "3+2*6-2"
+	exp := "3+3*6-4"
 	//	定义一个index， 帮助扫描exp
 	index := 0
-
+	//为了配合运算，我们定义需要的变量
+	num1 := 0
+	num2 := 0
+	oper := 0
+	result := 0
+	keepNum := ""
 	//for 循环
 	for {
 		ch := exp[index : index+1] // 字符串.
+		// ch := int([]byte(ch)[0])
+		temp := int([]byte(ch)[0]) // 就是字符对应的ASCII码
 
+		if openStack.IsOper(temp) { // 说明是符号
+			//如果operStack  是一个空栈， 直接入栈
+			if openStack.Top == -1 { //空栈
+				openStack.Push(temp)
+			} else {
+				//如果发现opertStack栈顶的运算符的优先级大于等于当前准备入栈的运算符的优先级
+				//，就从符号栈pop出，并从数栈也pop 两个数，进行运算，运算后的结果再重新入栈
+				//到数栈， 当前符号再入符号栈
+				if openStack.Priority(openStack.arr[openStack.Top]) >= openStack.Priority(temp) {
+					num1, _ = numStack.Pop()
+					num2, _ = numStack.Pop()
+					oper, _ = openStack.Pop()
+					result = openStack.Cal(num1, num2, oper)
+					// 计算的结果从新入数栈
+					numStack.Push(result)
+					//当前的符号压入符号栈
+					openStack.Push(temp)
+				} else {
+					openStack.Push(temp)
+				}
+			}
+		} else { // 说明是数
+			//处理多位数的思路
+			//1.定义一个变量 keepNum string, 做拼接
+			keepNum += ch
+			//2.每次要向index的后面字符测试一下，看看是不是运算符，然后处理
+			//如果已经到表达最后，直接将 keepNum
+			if index == len(exp)-1 {
+				val, _ := strconv.ParseInt(ch, 10, 64)
+				numStack.Push(int(val))
+			} else {
+				//向index 后面测试看看是不是运算符 [index]
+				if openStack.IsOper(int([]byte(exp[index+1 : index+2])[0])) {
+					val, _ := strconv.ParseInt(keepNum, 10, 64)
+					numStack.Push(int(val))
+					keepNum = ""
+				}
+			}
+
+			// 3 ==> 51 错误
+
+		}
+		//继续扫描
+		//先判断index是否已经扫描到计算表达式的最后
+		if index+1 == len(exp) {
+			break
+		}
+		index++
 	}
+	//如果扫描表达式 完毕，依次从符号栈取出符号，然后从数栈取出两个数，
+	//运算后的结果，入数栈，直到符号栈为空
+	for {
+		if openStack.Top == -1 {
+			break //退出条件
+		}
+		num1, _ = numStack.Pop()
+		num2, _ = numStack.Pop()
+		oper, _ = openStack.Pop()
+		result = openStack.Cal(num1, num2, oper)
+		// 计算的结果从新入数栈
+		numStack.Push(result)
+	}
+	//如果我们的算法没有问题，表达式也是正确的，则结果就是numStack最后数
+	res, _ := numStack.Pop()
+	fmt.Printf("表达式%s = %v", exp, res)
 }

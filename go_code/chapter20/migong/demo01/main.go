@@ -1,10 +1,11 @@
 package main
 
 import "fmt"
+
 // 递归
 func test(n int) {
 	if n > 2 {
-		n-- //
+		n-- // 死鬼
 		test(n)
 	} else {
 		fmt.Println("n=", n)

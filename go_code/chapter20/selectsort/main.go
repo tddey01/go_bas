@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // 编一个函数selectSort 完成排序
-func SelectSort(arr *[6]int) {
+func SelectSort(arr *[80000]int) {
 	// 标准的访问方式
 	//(*arr)[1] = 600
 	//arr[1] = 600
@@ -25,7 +29,7 @@ func SelectSort(arr *[6]int) {
 			arr[j], arr[maxIndex] = arr[maxIndex], arr[j]
 		}
 
-		fmt.Printf("第%d次 %v\n", j+1, *arr)
+		//fmt.Printf("第%d次 %v\n", j+1, *arr)
 
 	}
 
@@ -96,9 +100,17 @@ func SelectSort(arr *[6]int) {
 
 func main() {
 	// 定义一个数组 从大到小
-	arr := [6]int{10, 34, 19, 100, 80, 900}
-	fmt.Println("原始=", arr)
+	//arr := [6]int{10, 34, 19, 100, 80, 900}
+	var arr [80000]int
+	for i := 0; i < 80000; i++ {
+		arr[i] = rand.Intn(900000)
+	}
+
+	//fmt.Println("原始=", arr)
+	start := time.Now().Unix()
 	SelectSort(&arr)
+	end := time.Now().Unix()
+	fmt.Printf("选择排序法耗时=%d秒", end-start)
 	fmt.Println("main函数")
-	fmt.Println(arr)
+
 }

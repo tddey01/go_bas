@@ -44,3 +44,64 @@ func (user *User) AddUser2() error {
 	}
 	return nil
 }
+
+// GetUserById 根据用户的id从数据库中查询一条记录
+func (user *User) GetUserById() (*User, error) {
+	// 写SQL语句
+	sqlStr := "SELECT  id,username,passord,email FROM users WHERE id = ?"
+	// 执行
+	row := utils.Db.QueryRow(sqlStr, user.Id)
+	// 声明
+	var (
+		id       int
+		username string
+		passord  string
+		email    string
+	)
+	err := row.Scan(&id, &username, &passord, &email)
+	if err != nil {
+		return nil, err
+	}
+	u := &User{
+		Id:       id,
+		Username: username,
+		Passord:  passord,
+		Email:    email,
+	}
+	return u, nil
+}
+
+// GetUsersAll 获取数据库所有的的记录
+func (user *User) GetUserAll() ([]*User, error) {
+	// 写SQL语句
+	sqlStr := "SELECT  id,username,passord,email FROM users "
+	// 执行
+	row, err := utils.Db.Query(sqlStr)
+	if err != nil {
+		return nil, err
+	}
+
+	// for 循环
+	// 创建User切片
+	var users []*User
+	for row.Next() {
+		var (
+			id       int
+			username string
+			passord  string
+			email    string
+		)
+		err := row.Scan(&id, &username, &passord, &email)
+		if err != nil {
+			return nil, err
+		}
+		u := &User{
+			Id:       id,
+			Username: username,
+			Passord:  passord,
+			Email:    email,
+		}
+		users = append(users, u)
+	}
+	return users, nil
+}

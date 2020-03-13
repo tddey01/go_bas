@@ -44,3 +44,19 @@ func Regist(w http.ResponseWriter, r *http.Request) {
 		t.Execute(w, "")
 	}
 }
+
+// CheckUserName 通过发送Ajax验证用户名是否可用
+func CheckUserName(w http.ResponseWriter, r *http.Request) {
+	// 获取用户输入用户名
+	username := r.PostFormValue("username")
+	// fmt.Println("出入的用户名是:", username)
+	// 调用userdao中验证用户名和密码的方法
+	user, _ := dao.CheckUserName(username)
+	if user.ID > 0 {
+		// 用户名已存在
+		w.Write([]byte("用户名已存在!"))
+	} else {
+		// 用户吗可以用 将用户保存到数据库中
+		w.Write([]byte("<font style='color:green'>用户可用!</font>"))
+	}
+}

@@ -57,12 +57,13 @@ func testTemptale(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, "我能在两个文件中显示吗")
 }
 func main() {
+	// 条件
 	http.HandleFunc("/testIf", testIf)
-
+	// 迭代
 	http.HandleFunc("/testRange", testRange)
-	//
+	// 设置
 	http.HandleFunc("/testwith", testwith)
-	//
+	// 包含
 	http.HandleFunc("/testTemplate", testTemptale)
 
 	http.ListenAndServe(":8080", nil)

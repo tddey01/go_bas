@@ -67,11 +67,12 @@ func testDefine(w http.ResponseWriter, r *http.Request) {
 
 // 测试 testDefine2
 func testDefine2(w http.ResponseWriter, r *http.Request) {
-	age := 19
+	age := 17
 	var t *template.Template
 	if age < 18 {
 		// 解析模板
-		t = template.Must(template.ParseFiles("define2.html", "content2.html"))
+		// t = template.Must(template.ParseFiles("define2.html", "content2.html"))
+		t = template.Must(template.ParseFiles("define2.html"))
 	} else {
 		// 解析模板
 		t = template.Must(template.ParseFiles("define2.html", "content1.html"))

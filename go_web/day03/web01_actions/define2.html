@@ -9,7 +9,11 @@
 </head>
 
 <body>
-{{template "content"}}
+    <!-- {{template "content" .}} -->
+    <!-- 块动作 相当于一个默认的模板  -->
+    {{block "content" .}}
+    你的年龄是假的吧
+    {{end}}
 </body>
 
 </html>

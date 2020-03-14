@@ -42,9 +42,19 @@ func testRange(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, emps)
 }
 
+// 测试 with
+func testwith(w http.ResponseWriter, r *http.Request) {
+	// 解析模板
+	t := template.Must(template.ParseFiles("with.html"))
+	// 执行
+	t.Execute(w, "狸猫")
+}
+
 func main() {
 	http.HandleFunc("/testIf", testIf)
 
 	http.HandleFunc("/testRange", testRange)
+
+	http.HandleFunc("/testwith", testwith)
 	http.ListenAndServe(":8080", nil)
 }

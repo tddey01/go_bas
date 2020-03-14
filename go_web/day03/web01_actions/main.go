@@ -50,11 +50,19 @@ func testwith(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, "狸猫")
 }
 
+// 包含
 func testTemptale(w http.ResponseWriter, r *http.Request) {
 	// 解析模板
 	t := template.Must(template.ParseFiles("template1.html", "template2.html"))
 	// 执行
 	t.Execute(w, "我能在两个文件中显示吗")
+}
+
+func testDefine(w http.ResponseWriter, r *http.Request) {
+	// 解析模板
+	t := template.Must(template.ParseFiles("define.html"))
+	// 执行
+	t.ExecuteTemplate(w, "model", "")
 }
 func main() {
 	// 条件
@@ -65,6 +73,8 @@ func main() {
 	http.HandleFunc("/testwith", testwith)
 	// 包含
 	http.HandleFunc("/testTemplate", testTemptale)
+	// 模板
+	http.HandleFunc("/testdefine", testDefine)
 
 	http.ListenAndServe(":8080", nil)
 }

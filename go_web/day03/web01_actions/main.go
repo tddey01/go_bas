@@ -64,6 +64,22 @@ func testDefine(w http.ResponseWriter, r *http.Request) {
 	// 执行
 	t.ExecuteTemplate(w, "model", "")
 }
+
+// 测试 testDefine2
+func testDefine2(w http.ResponseWriter, r *http.Request) {
+	age := 19
+	var t *template.Template
+	if age < 18 {
+		// 解析模板
+		t = template.Must(template.ParseFiles("define2.html", "content2.html"))
+	} else {
+		// 解析模板
+		t = template.Must(template.ParseFiles("define2.html", "content1.html"))
+	}
+	// 执行
+	t.ExecuteTemplate(w, "model", "")
+}
+
 func main() {
 	// 条件
 	http.HandleFunc("/testIf", testIf)
@@ -75,6 +91,9 @@ func main() {
 	http.HandleFunc("/testTemplate", testTemptale)
 	// 模板
 	http.HandleFunc("/testdefine", testDefine)
+
+	// 模板
+	http.HandleFunc("/testdefine2", testDefine2)
 
 	http.ListenAndServe(":8080", nil)
 }

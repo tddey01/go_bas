@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go_bas/go_web/day02/bookstore0612/controller"
+	"go_bas/go_web/day03/bookstore0612/controller"
 	"html/template"
 	"net/http"
 )
@@ -28,5 +28,9 @@ func main() {
 	// 通过Ajax请求验证用户名是否可用
 	http.HandleFunc("/checkUserName", controller.CheckUserName)
 
+	// 获取所有图书
+	http.HandleFunc("/getBooks", controller.GetBooks)
+	// 添加图书
+	http.HandleFunc("/addBook", controller.AddBook)
 	http.ListenAndServe(":8080", nil)
 }

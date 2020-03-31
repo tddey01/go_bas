@@ -65,7 +65,7 @@ func ToUpdateBookPage(w http.ResponseWriter, r *http.Request) {
 	// 调用bookdao中的话获取图书的函数
 	book, _ := dao.GetBookByID(bookId)
 	// 解析模板
-	t := template.Must(template.ParseFiles("views/pages/manager/book_modify.html"))
+	t := template.Must(template.ParseFiles("views/pages/manager/book_edit.html"))
 	//执行
 	t.Execute(w, book)
 }

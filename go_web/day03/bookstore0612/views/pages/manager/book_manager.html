@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>图书管理</title>
-    <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css" >
+    <script src="/static/script/jquery-1.7.2.js"></script>
+    <script>
+        $(function(){
+            //给删除图书的超链接绑定单击事件
+            $(".deleteBook").click(function(){
+                //获取书名
+                var title = $(this).attr("id");
+                // var flag = confirm("确定要删除【"+title+"】这本图书吗？");
+                // if(!flag){
+                // 	//取消默认行为
+                // 	return false;
+                // }
+                return confirm("确定要删除【"+title+"】这本图书吗？");
+            });
+        });
+    </script>
 </head>
 <body>
 
 <div id="header">
-    <img class="logo_img" alt="" src="/static/img/logo.gif">
+    <img class="logo_img" alt="" src="/static/img/logo.gif" >
     <span class="wel_word">图书管理系统</span>
     <div>
-        <a href="/pages/manager/book_manager.html">图书管理</a>
-        <a href="/">返回商城</a>
+        <a href="/getBooks">图书管理</a>
+        <a href="/main">返回商城</a>
     </div>
 </div>
 
@@ -33,8 +49,8 @@
                 <td>{{.Author}}</td>
                 <td>{{.Sales}}</td>
                 <td>{{.Stock}}</td>
-                <td><a href="/pages/manager/book_edit.html">修改</a></td>
-                <td><a href="/deleteBok?bookId={{.ID}}">删除</a></td>
+                <td><a href="/toUpdateBookPage?bookId={{.Id}}">修改</a></td>
+                <td><a id="{{.Title}}" class="deleteBook" href="/deleteBook?bookId={{.Id}}">删除</a></td>
             </tr>
         {{end}}
         <tr>

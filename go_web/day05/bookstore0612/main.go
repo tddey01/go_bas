@@ -17,6 +17,8 @@ func main() {
 	http.HandleFunc("/login", controller.Login)
 	//去注册
 	http.HandleFunc("/regist", controller.Regist)
+	// 注销用户登录
+	http.HandleFunc("/logout", controller.Logout)
 	//通过Ajax请求验证用户名是否可用
 	http.HandleFunc("/checkUserName", controller.CheckUserName)
 	//获取所有图书

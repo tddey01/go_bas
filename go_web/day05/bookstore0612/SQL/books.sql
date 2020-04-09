@@ -16,6 +16,14 @@ CREATE TABLE books.book(
     img_path VARCHAR(100)
 );
 
+CREATE  TABLE  sessions(
+    session_id VARCHAR(100) PRIMARY KEY ,
+    username  VARCHAR(100) NOT NULL ,
+    user_id INT NOT NULL ,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
 alter table book change img_pach img_path varchar(100) null;
 
 INSERT INTO books.book (title, author ,price, sales , stock , img_path) VALUES('解忧杂货店','东野圭吾',27.20,100,100,'static/img/default.jpg');

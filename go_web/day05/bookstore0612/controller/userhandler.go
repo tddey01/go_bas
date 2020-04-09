@@ -2,26 +2,71 @@ package controller
 
 import (
 	"go_bas/go_web/day05/bookstore0612/dao"
+	"go_bas/go_web/day05/bookstore0612/model"
+	"go_bas/go_web/day05/bookstore0612/utils"
 	"html/template"
 	"net/http"
 )
 
+//Logout //处理用户注销的函数
+func Logout(w http.ResponseWriter, r *http.Request) {
+	// 获取Cookie
+	cookie, _ := r.Cookie("user")
+	if cookie != nil {
+		// 获取cookie的value值
+		cookievalue := cookie.Value
+		// 删除数据中的与之对应的Session
+		dao.DeleteSession(cookievalue)
+		//设置cookie失效
+		cookie.MaxAge = -1
+		// 修改cookie 发送给浏览器
+		http.SetCookie(w, cookie)
+	}
+	// 去首页
+	GetPageBooksByPrice(w, r)
+}
+
 //Login 处理用户登录的函数
 func Login(w http.ResponseWriter, r *http.Request) {
-	//获取用户名和密码
-	username := r.PostFormValue("username")
-	password := r.PostFormValue("password")
-	//调用userdao中验证用户名和密码的方法
-	user, _ := dao.CheckUserNameAndPassword(username, password)
-	if user.ID > 0 {
-		
-		//用户名和密码正确
-		t := template.Must(template.ParseFiles("views/pages/user/login_success.html"))
-		t.Execute(w, "")
+	// 判断是否已经登录
+	flag, _ := dao.IsLogin(r)
+	if flag {
+		// 已经登录
+		// 去首页
+		GetPageBooksByPrice(w, r)
 	} else {
-		//用户名或密码不正确
-		t := template.Must(template.ParseFiles("views/pages/user/login.html"))
-		t.Execute(w, "用户名或密码不正确！")
+		//获取用户名和密码
+		username := r.PostFormValue("username")
+		password := r.PostFormValue("password")
+		//调用userdao中验证用户名和密码的方法
+		user, _ := dao.CheckUserNameAndPassword(username, password)
+		if user.ID > 0 {
+			//用户名和密码正确
+			// 使用UUID作为session的id
+			uuid := utils.CreateUUID()
+			// 创见一个Session
+			sess := &model.Session{
+				SessionID: uuid,
+				UserName:  user.Username,
+				UserID:    user.ID,
+			}
+			// 将Session保存在数据中
+			dao.AddSession(sess)
+			// 创建一个Cookie， 让他和Session互相关联
+			cookie := http.Cookie{
+				Name:     "user",
+				Value:    uuid,
+				HttpOnly: true,
+			}
+			// Cookie 发送给浏览器
+			http.SetCookie(w, &cookie)
+			t := template.Must(template.ParseFiles("views/pages/user/login_success.html"))
+			t.Execute(w, user)
+		} else {
+			//用户名或密码不正确
+			t := template.Must(template.ParseFiles("views/pages/user/login.html"))
+			t.Execute(w, "用户名或密码不正确！")
+		}
 	}
 }
 

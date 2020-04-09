@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"go_bas/go_web/day05/bookstore0612/model"
 	"fmt"
+	"go_bas/go_web/day05/bookstore0612/model"
 	"testing"
 )
 
@@ -32,13 +32,14 @@ func testSave(t *testing.T) {
 
 func TestBook(t *testing.T) {
 	fmt.Println("测试bookdao中的相关函数")
-	t.Run("测试获取所有图书", testGetBooks)
-	t.Run("测试添加图书", testAddBook)
-	t.Run("测试删除图书", testDeleteBook)
-	t.Run("测试获取一本图书", testGetBook)
-	t.Run("测试更新图书", testUpdateBook)
-	t.Run("测试获取带分页的图书", testGetPageBooks)
-	t.Run("测试获取带分页和价格范围的图书", testGetPageBooksByPrice)
+	//t.Run("测试获取所有图书", testGetBooks)
+	//t.Run("测试添加图书", testAddBook)
+	//t.Run("测试删除图书", testDeleteBook)
+	//t.Run("测试获取一本图书", testGetBook)
+	//t.Run("测试更新图书", testUpdateBook)
+	//t.Run("测试获取带分页的图书", testGetPageBooks)
+	//t.Run("测试获取带分页和价格范围的图书", testGetPageBooksByPrice)
+
 }
 
 func testGetBooks(t *testing.T) {
@@ -102,4 +103,29 @@ func testGetPageBooksByPrice(t *testing.T) {
 	for _, v := range page.Books {
 		fmt.Println("图书的信息是：", v)
 	}
+}
+
+func TestSession(t *testing.T) {
+	fmt.Println("测试Sesseion相关方法")
+	//t.Run("测试添加Session",testAddSession)
+	t.Run("测试查看Session",testGetSessionById )
+}
+
+func testAddSession(t *testing.T) {
+	sess := &model.Session{
+		SessionID: "13838381438",
+		UserName:  "马蓉",
+		UserID:    1,
+	}
+
+	AddSession(sess)
+}
+
+func testDeleteSession(t *testing.T) {
+	DeleteSession("13838381438")
+}
+
+func testGetSessionById(t *testing.T) {
+	sess,_ := GetSessionById("ee39f56d-0594-4e0d-6c5c-9a3440cba5ca")
+	fmt.Println("Session的市信息市", sess)
 }

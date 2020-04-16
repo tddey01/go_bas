@@ -23,6 +23,23 @@ CREATE  TABLE  sessions(
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE TABLE carts(
+id VARCHAR(100) PRIMARY KEY,
+total_count INT NOT NULL,
+total_amount DOUBLE(11,2) NOT NULL,
+user_id INT NOT NULL,
+FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+CREATE TABLE cart_itmes(
+id INT PRIMARY KEY AUTO_INCREMENT,
+COUNT INT NOT NULL,
+amount DOUBLE(11,2) NOT NULL,
+book_id INT NOT NULL,
+cart_id VARCHAR(100) NOT NULL,
+FOREIGN KEY(book_id) REFERENCES book(id),
+FOREIGN KEY(cart_id) REFERENCES carts(id)
+);
 
 alter table book change img_pach img_path varchar(100) null;
 

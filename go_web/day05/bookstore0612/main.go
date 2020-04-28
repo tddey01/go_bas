@@ -35,5 +35,5 @@ func main() {
 	//更新或添加图书
 	http.HandleFunc("/updateOraddBook", controller.UpdateOrAddBook)
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":88", nil)
 }

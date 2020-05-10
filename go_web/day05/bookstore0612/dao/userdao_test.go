@@ -32,13 +32,13 @@ func testSave(t *testing.T) {
 
 func TestBook(t *testing.T) {
 	fmt.Println("测试bookdao中的相关函数")
-	//t.Run("测试获取所有图书", testGetBooks)
+	t.Run("测试获取所有图书", testGetBooks)
 	//t.Run("测试添加图书", testAddBook)
 	//t.Run("测试删除图书", testDeleteBook)
-	//t.Run("测试获取一本图书", testGetBook)
+	t.Run("测试获取一本图书", testGetBook)
 	//t.Run("测试更新图书", testUpdateBook)
-	//t.Run("测试获取带分页的图书", testGetPageBooks)
-	//t.Run("测试获取带分页和价格范围的图书", testGetPageBooksByPrice)
+	t.Run("测试获取带分页的图书", testGetPageBooks)
+	t.Run("测试获取带分页和价格范围的图书", testGetPageBooksByPrice)
 
 }
 

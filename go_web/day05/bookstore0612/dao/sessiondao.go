@@ -53,7 +53,7 @@ func GetSessionById(sessID string) (*model.Session, error) {
 func IsLogin(r *http.Request) (bool, string) {
 	// 根据cookie的name 获取Cookie
 	cookie, _ := r.Cookie("user")
-	if cookie == nil {
+	if cookie != nil {
 		// 获取cookie的value
 		cookievalue := cookie.Value
 		// 根据cookievalue取数据中查询与之键对应的Session

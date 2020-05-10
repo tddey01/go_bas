@@ -32,5 +32,12 @@ func main() {
 	http.HandleFunc("/getBooks", controller.GetBooks)
 	// 添加图书
 	http.HandleFunc("/addBook", controller.AddBook)
+	//删除图书
+	http.HandleFunc("/deleteBook", controller.DeleteBook)
+	// 去更新图书页面
+	http.HandleFunc("/toUpdateBookPage",controller.ToUpdateBookPage)
+	// 更新图书
+	http.HandleFunc("/updateBook",controller.UpdateBook)
+
 	http.ListenAndServe(":8080", nil)
 }

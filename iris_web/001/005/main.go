@@ -10,7 +10,7 @@ import (
 type UserController struct {
 }
 /**
- * url：http://localhost:8009
+ * url：http://127.0.0.1:8080
  * type：get
  */
 func (uc *UserController) Get() string{
@@ -19,7 +19,7 @@ func (uc *UserController) Get() string{
 }
 
 /**
- * url：http://localhost:8009
+ * url：http://127.0.0.1:8080
  * type：post
  */
 func (uc *UserController) Post() {
@@ -31,7 +31,7 @@ func (uc *UserController) Put() {
 }
 
 /**
- * url：http://localhost:8009/info
+ * url：http://127.0.0.1:8080/info
  * type：get
  */
 func (uc *UserController) GetInfo() mvc.Result {
@@ -49,7 +49,7 @@ func (uc *UserController) BeforeActivation(a mvc.BeforeActivation) {
 }
 
 /**
- * url： http://localhost:8009/query
+ * url： http://127.0.0.1:8080/query
  * type：get
  */
 func (uc *UserController) UserInfo() mvc.Result {

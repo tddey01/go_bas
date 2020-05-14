@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/context"
 	"github.com/kataras/iris/sessions"
 	"github.com/tddey01/go_bas/iris_web/002/002/config"
-	"time"
 )
 
 // newApp()  构建
@@ -39,10 +40,11 @@ func mvcHandler(app *iris.Application) {
 		Expires: 24 * time.Hour,
 	})
 	//engine := datasource.
+	fmt.Println(sessManager)
 }
 
 func main() {
-	app := newApp()
+	// app := newApp()
 
 	// 应用设置
 	//configuration(app)
@@ -51,4 +53,5 @@ func main() {
 	//mvcHandle(app)
 
 	config := config.InitConfig()
+	fmt.Println(config)
 }

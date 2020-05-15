@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/goes/logger"
+	_"gitlab.99safe.org/Shadow/shadow-framework/logger"
 	"github.com/kataras/iris"
 )
 
@@ -13,7 +13,8 @@ import (
 func SetObjByJson(obj interface{}, data map[string]interface{}) error {
 	for key, value := range data {
 		if err := setField(obj, key, value); err != nil {
-			logger.Error("SetObjByJson set field fail.")
+			//logger.Error("SetObjByJson set field fail.")
+
 			return err
 		}
 	}
@@ -25,7 +26,8 @@ func setField(obj interface{}, name string, value interface{}) error {
 	structData := reflect.TypeOf(obj).Elem()
 	fieldValue, result := structData.FieldByName(name)
 	if !result {
-		logger.Error("No such field ", name)
+		//logger.Error("No such field ", name)
+		//logger.Log()
 		return fmt.Errorf("No such field %s", name)
 	}
 

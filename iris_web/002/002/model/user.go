@@ -1,9 +1,13 @@
 package model
 
-import "time"
+import (
+	"time"
+	"github.com/tddey01/go_bas/iris_web/002/002/utils"
+)
 
-// user  用户信息结构体,用于生成用户信息表
-
+/**
+ * 用户信息结构体,用于生成用户信息表
+ */
 type User struct {
 	Id          int64     `xorm:"pk autoincr" json:"id"`        //主键 用户ID
 	UserName    string    `xorm:"varchar(12)" json:"username"`  //用户名称
@@ -18,8 +22,9 @@ type User struct {
 	City        *City     `xorm:"- <- ->"`
 }
 
-// UserToRespDesc  将数据库查询出来的结果进行格式组装成request请求需要的json字段格式
-
+/**
+ * 将数据库查询出来的结果进行格式组装成request请求需要的json字段格式
+ */
 func (user *User) UserToRespDesc() interface{} {
 	respInfo := map[string]interface{}{
 		"id":           user.Id,

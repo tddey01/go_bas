@@ -1,6 +1,6 @@
 {
     "app_name": "CmsProject",
-    "Port": 8080,
+    "Port": 8888,
     "static_path": "/static",
     "mod": "dev"
 }

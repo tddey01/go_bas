@@ -17,7 +17,7 @@ var ServConfig AppConfig
 
 // InitConfig 服务端初始化
 func InitConfig() *AppConfig {
-	file, err := os.Open("../config.json")
+	file, err := os.Open("/Users/access/Projects/go_code/src/github.com/tddey01/go_bas/iris_web/002/002/config.json")
 	if err != nil {
 		panic(err.Error())
 	}

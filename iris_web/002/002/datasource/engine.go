@@ -10,7 +10,7 @@ import (
 // NewMysqlEngine 实例化数据库引擎方法：mysql的数据引擎
 func NewMysqlEngine() *xorm.Engine {
 	//数据库引擎
-	engine, err := xorm.NewEngine("mysql", "cms:7WFFz68FRhXNHR67@tcp(192.168.192.201:3306)cms?charset=utf8")
+	engine, err := xorm.NewEngine("mysql", "cms:7WFFz68FRhXNHR67@tcp(192.168.192.201:3306)/cms?charset=utf8")
 
 	//根据实体创建表
 	//err = engine.CreateTables(new(model.Admin))

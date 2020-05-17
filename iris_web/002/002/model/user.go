@@ -1,8 +1,8 @@
 package model
 
 import (
-	"time"
 	"github.com/tddey01/go_bas/iris_web/002/002/utils"
+	"time"
 )
 
 /**

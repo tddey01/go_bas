@@ -12,18 +12,16 @@ import (
 	"time"
 )
 
-
 func main() {
 	app := newApp()
 
-	// 应用设置
+	//应用App设置
 	configation(app)
 
-	// 路由设置
+	//路由设置
 	mvcHandle(app)
 
 	config := config.InitConfig()
-
 	addr := ":" + config.Port
 	app.Run(
 		iris.Addr(addr),                               //在端口9000进行监听
@@ -32,11 +30,11 @@ func main() {
 	)
 }
 
-
-// newApp 构建App
+//构建App
 func newApp() *iris.Application {
 	app := iris.New()
 
+	//设置日志级别  开发阶段为debug
 	app.Logger().SetLevel("debug")
 
 	//注册静态资源

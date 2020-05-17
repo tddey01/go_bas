@@ -1,8 +1,10 @@
 package model
 
-import "time"
+import (
+	"time"
+)
 
-// admin 定义管理员结构体
+//定义管理员结构体
 type Admin struct {
 	//如果field名称为Id，而且类型为int64，并没有定义tag，则会被xorm视为主键，并且拥有自增属性
 	AdminId    int64     `xorm:"pk autoincr" json:"id"` //主键 自增
@@ -16,8 +18,9 @@ type Admin struct {
 	City       *City     `xorm:"- <- ->"` //所对应的城市结构体（基础表结构体）
 }
 
-// adminToRespDesc 从Admin数据库实体转换为前端请求的resp的json格式
-
+/**
+ * 从Admin数据库实体转换为前端请求的resp的json格式
+ */
 func (this *Admin) AdminToRespDesc() interface{} {
 
 	respDesc := map[string]interface{}{

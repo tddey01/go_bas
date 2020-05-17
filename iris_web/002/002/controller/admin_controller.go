@@ -1,13 +1,13 @@
 package controller
 
 import (
+	"encoding/json"
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/mvc"
-	"github.com/tddey01/go_bas/iris_web/002/002/service"
 	"github.com/kataras/iris/sessions"
-	"encoding/json"
-	"github.com/tddey01/go_bas/iris_web/002/002/utils"
 	"github.com/tddey01/go_bas/iris_web/002/002/model"
+	"github.com/tddey01/go_bas/iris_web/002/002/service"
+	"github.com/tddey01/go_bas/iris_web/002/002/utils"
 )
 
 /**
@@ -42,7 +42,7 @@ type AdminLogin struct {
 func (ac *AdminController) GetSingout() mvc.Result {
 
 	//删除session，下次需要从新登录
-	ac.Session.Delete(ADMIN);
+	ac.Session.Delete(ADMIN)
 	return mvc.Response{
 		Object: map[string]interface{}{
 			"status":  utils.RECODE_OK,

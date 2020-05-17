@@ -13,7 +13,7 @@ import (
 func main() {
 
 	//1. 创建数据库引擎对象
-	engine, err := xorm.NewEngine("mysql", "root:yu271400@/testCms?charset=utf8")
+	engine, err := xorm.NewEngine("mysql", "root:123456@tcp(127.0.0.1:3306)/testcms?charset=utf8")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -125,7 +125,7 @@ func main() {
 	fmt.Println(rowNum) //rowNum 受影响的记录条数
 	fmt.Println()
 
-	//六、统计功能count
+	//六、统计功能count  \\ 列表分页使用
 	count, err := engine.Count(new(PersonTable))
 	fmt.Println("PersonTable表总记录条数：", count)
 

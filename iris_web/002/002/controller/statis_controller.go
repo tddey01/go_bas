@@ -2,11 +2,11 @@ package controller
 
 import (
 	"github.com/kataras/iris"
+	"github.com/kataras/iris/mvc"
 	"github.com/kataras/iris/sessions"
 	"github.com/tddey01/go_bas/iris_web/002/002/service"
-	"strings"
-	"github.com/kataras/iris/mvc"
 	"github.com/tddey01/go_bas/iris_web/002/002/utils"
+	"strings"
 )
 
 /**

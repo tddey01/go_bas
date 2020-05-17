@@ -2,19 +2,17 @@ package utils
 
 import (
 	"fmt"
+	"github.com/kataras/iris"
+	"github.com/studygolang/sander/logger"
 	"reflect"
 	"time"
-
-	_"gitlab.99safe.org/Shadow/shadow-framework/logger"
-	"github.com/kataras/iris"
 )
 
 //根据Json格式设置obj对象
 func SetObjByJson(obj interface{}, data map[string]interface{}) error {
 	for key, value := range data {
 		if err := setField(obj, key, value); err != nil {
-			//logger.Error("SetObjByJson set field fail.")
-
+			logger.Error("SetObjByJson set field fail.")
 			return err
 		}
 	}
@@ -26,8 +24,7 @@ func setField(obj interface{}, name string, value interface{}) error {
 	structData := reflect.TypeOf(obj).Elem()
 	fieldValue, result := structData.FieldByName(name)
 	if !result {
-		//logger.Error("No such field ", name)
-		//logger.Log()
+		logger.Error("No such field ", name)
 		return fmt.Errorf("No such field %s", name)
 	}
 

@@ -1,11 +1,11 @@
 package config
 
 import (
-	"encoding/json"
 	"os"
+	"encoding/json"
 )
 
-// AppConfig  服务端配置
+//服务端配置
 type AppConfig struct {
 	AppName    string `json:"app_name"`
 	Port       string `json:"port"`
@@ -15,7 +15,7 @@ type AppConfig struct {
 
 var ServConfig AppConfig
 
-// InitConfig 服务端初始化
+//初始化服务器配置
 func InitConfig() *AppConfig {
 	file, err := os.Open("/Users/access/Projects/go_code/src/github.com/tddey01/go_bas/iris_web/002/002/config.json")
 	if err != nil {

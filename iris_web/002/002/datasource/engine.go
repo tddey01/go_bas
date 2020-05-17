@@ -1,16 +1,18 @@
 package datasource
 
-// 数据引擎
 import (
 	_ "github.com/go-sql-driver/mysql" //不能忘记导入
 	"github.com/go-xorm/xorm"
 	"github.com/tddey01/go_bas/iris_web/002/002/model"
 )
 
-// NewMysqlEngine 实例化数据库引擎方法：mysql的数据引擎
+/**
+ * 实例化数据库引擎方法：mysql的数据引擎
+ */
 func NewMysqlEngine() *xorm.Engine {
+
 	//数据库引擎
-	engine, err := xorm.NewEngine("mysql", "cms:7WFFz68FRhXNHR67@tcp(192.168.192.201:3306)/cms?charset=utf8")
+	engine, err := xorm.NewEngine("mysql", "root:123456@tcp(127.0.0.1:3306)/cms?charset=utf8")
 
 	//根据实体创建表
 	//err = engine.CreateTables(new(model.Admin))
@@ -25,11 +27,14 @@ func NewMysqlEngine() *xorm.Engine {
 	 */
 	//Sync2是Sync的基础上优化的方法
 	err = engine.Sync2(new(model.Permission), new(model.City), new(model.Admin), new(model.AdminPermission), new(model.User))
+
 	if err != nil {
 		panic(err.Error())
 	}
+
 	//设置显示sql语句
 	engine.ShowSQL(true)
 	engine.SetMaxOpenConns(10)
+
 	return engine
 }
